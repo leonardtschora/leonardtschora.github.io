@@ -5,8 +5,7 @@ permalink: /publication/EPF
 excerpt: 'A benchmark of the state-of-the-art Machine Learning techniques on Electricity Price Forecasting for various european datasets, with application of Explainability tools (shap values).'
 date: 2022-05-01
 venue: 'Applied Energy'
-#slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
-paperurl: 'http://academicpages.github.io/files/EPF.pdf'
+paperurl: '/files/EPF.pdf'
 citation: 'Léonard Tschora, Erwan Pierre, Marc Plantevit, Céline Robardet,
 Electricity price forecasting on the day-ahead market using machine learning,
 Applied Energy,
