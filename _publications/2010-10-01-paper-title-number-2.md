@@ -1,13 +1,24 @@
 ---
-title: "Paper Title Number 2"
+title: "Forecasting electricity prices: An optimize then predict-based approach"
 collection: publications
-permalink: /publication/2010-10-01-paper-title-number-2
-excerpt: 'This paper is about the number 2. The number 3 is left for future work.'
-date: 2010-10-01
-venue: 'Journal 1'
-slidesurl: 'http://academicpages.github.io/files/slides2.pdf'
-paperurl: 'http://academicpages.github.io/files/paper2.pdf'
-citation: 'Your Name, You. (2010). &quot;Paper Title Number 2.&quot; <i>Journal 1</i>. 1(2).'
+permalink: /publication/ida
+excerpt: 'Paper presented at the Intelligent Data Analysis 2023 conference, where it was awarded the frontier prize for best paper.'
+date: 2023-04-01
+venue: 'International Symposium on Intelligent Data Analysis'
+#slidesurl: 'http://academicpages.github.io/files/ida-slides.pdf'
+paperurl: 'http://academicpages.github.io/files/ida.pdf'
+citation: '**Leonard Tschora**, Erwan Pierre, Marc Plantevit, Céline Robardet, (2023). *Forecasting Electricity Prices: An Optimize Then Predict-Based Approach*. In: Crémilleux, B., Hess, S., Nijssen, S. (eds) Advances in Intelligent Data Analysis XXI. IDA 2023. Lecture Notes in Computer Science, vol 13876. Springer, Cham. https://doi.org/10.1007/978-3-031-30047-9_35 (2010). '
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+We are interested in electricity price forecasting at the Euro-
+pean scale. The electricity market is ruled by price regulation mechanisms
+that make it possible to adjust production to demand, as electricity is
+difficult to store. These mechanisms ensure the highest price for producers,
+the lowest price for consumers and a zero energy balance by setting day-
+ahead prices, i.e. prices for the next 24 hours. Most studies have focused
+on learning increasingly sophisticated models to predict the next day’s 24
+hourly prices for a given zone. However, the zones are interdependent and
+this last point has hitherto been largely underestimated. In the following,
+we show that estimating the energy cross-border transfer by solving an
+optimization problem and integrating it as input of a model improves the
+performance of the price forecasting for several zones together.
