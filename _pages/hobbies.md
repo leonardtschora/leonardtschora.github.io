@@ -10,7 +10,7 @@ redirect_from:
 La Compagnie du Rognon
 ======
 
-<q> "Above all, keep it simple." </q> - Auguste Escoffier
+<q> Above all, keep it simple. </q> - Auguste Escoffier
 
 Weren't recipes the first algorithms? In that case, there is little difference between cooking and data analysis. Created in 2022 in a *Bouchon*, the association La Compagnie du Rognon aims at promoting Lyonnais cuisine. We write reviews from different restaurants, publish content in social medias and 
 organize gastronomy-related events such as the *Blind Cheese* (cheese tasting blindfolded) and *Come dine with me*. 
