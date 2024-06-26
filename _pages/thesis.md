@@ -12,6 +12,13 @@ redirect_from:
 Machine Learning techniques for Electricity Price Forecasting [PDF](/files/thesis.pdf)
 ======
 
+## Downloads
+
+[Thesis Manuscript](/files/thesis.pdf)
+[Defence slides](/files/defence.pdf)
+
+The defence was open to the public and was filmed. The [video is available here](https://www.youtube.com/live/Stj9HCPnH7g?si=Ta0hoN0RIBp3b4ER&t=226).
+
 ## Background
 
 I started this thesis following my research internship at [elmy](https://elmy.fr/) ([check here for more information](/experience/)). This thesis was a collaboration between the [Liris laboratory](https://liris.cnrs.fr/) (INSA Lyon) and elmy. As part of the [DM2L research team](https://projet.liris.cnrs.fr/dm2l/), I was mentored by [Céline Robardet](https://perso.liris.cnrs.fr/celine.robardet/) and [Marc Plantevit](https://www.lrde.epita.fr/wiki/User:Marc).
@@ -52,23 +59,5 @@ toward bridging the gap between Expert Models and Data Driven approaches. We als
 believe that our work on mixing optimization problems with machine learning models will
 benefit the broader scientific community.
 
-## Defence
 
-I defended my thesis on the 17th of January, 2024, against a jury composed of :
-|Name | Univeristy | Role during the defence |
-| - | - | - |
-| Pr. Siegfried Nijssen | Université Catholique de Louvain | Rapporteur |
-| Pr. Massih-Reza Amini | Université Grenoble Alpes | Rapporteur |
-| Mcf. Charlotte Laclau | Télécom Paris | Reviewer |
-| Pr. Elisa Fromont | Université Rennes 1 | Reviewer |
-| Pr. Stéphane Canu | INSA Rouen | Reviewer |
-| Dr. Erwan Pierre | elmy | Industrial supervisor |
-| Pr. Céline Robardet | INSA Lyon | Supervisor |
-| Pr. Marc Plantevit | EPITA | Supervisor | 
 
-The defence was open to the public and was filmed. The [video is available here](https://www.youtube.com/live/Stj9HCPnH7g?si=Ta0hoN0RIBp3b4ER&t=226).
-
-## Downloads
-
-[Thesis Manuscript](/files/thesis.pdf)
-[Defence slides](/files/defence.pdf)
