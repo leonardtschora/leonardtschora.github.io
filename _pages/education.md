@@ -9,37 +9,44 @@ redirect_from:
 
 {% include base_path %}
 
-Education
+Ph.D in Computer Sciences, INSA Lyon, 2024
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Industrial thesis conducted at the [Liris laboratory](https://liris.cnrs.fr/) (INSA Lyon) and [elmy](https://elmy.fr/).
+* Machine Learning Techniques for Electricity Price Forecasting
+* Explainable Artificial Intelligence
+* Graph Neural Networks
+* Differentiable Optimization
+* Three [publications in international journal & conferences](\publications\)
+* More information [here](\thesis\)
 
-Work experience
+
+Engineer degree in Computer Sciences, INSA Rouen, 2019
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Architect in Information Systems
+* Specialization in Data Analysis and Data Mining
+* Top grade in Data Mining course
+* Extra-credit projects
+  * Music genre classification (python)
+  * Video game implementation (C)
+  * Robot NAO plays Pong (python)
+* Other projects
+  * Auto-ML framework (python)
+  * Huffman file compressor (C)
+  * Rotative solar panel (C, Arduino)
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
   
-Skills
+Semester Abroad, The University of Queensland, 2018
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Artificial Intelligence related courses:
+  * Data Mining for business
+  * Human-computer interactions
+  * Data Mining
+  * Artificial Intelligence
+* Top grade in Data Mining and Human-computer interactions
+* Side projects :
+  * Game technoology (Java)
+  * Warehouse robot (Java)
+  * Rock climbing opening tool
 
 Publications
 ======
