@@ -9,20 +9,21 @@ redirect_from:
 
 {% include base_path %}
 
-Ph.D in Computer Sciences, INSA Lyon, 2024
+Ph.D in Computer Sciences, INSA Lyon, 2020-2024
 ======
 * Industrial thesis conducted at the [Liris laboratory](https://liris.cnrs.fr/) (INSA Lyon) and [elmy](https://elmy.fr/).
 * Machine Learning Techniques for Electricity Price Forecasting
-* Explainable Artificial Intelligence
-* Graph Neural Networks
-* Differentiable Optimization
+* Topics :
+  * Explainable Artificial Intelligence
+  * Graph Neural Networks
+  * Differentiable Optimization
 * Three [publications in international journal & conferences](\publications\)
 * More information [here](\thesis\)
 
 
-Engineer degree in Computer Sciences, INSA Rouen, 2019
+Engineer degree in Computer Sciences, INSA Rouen, 2016-2019
 ======
-* Architect in Information Systems
+* [Information Systems Architect](https://www.insa-rouen.fr/en/education/engineering-specialization/comptuer-science-and-technology)
 * Specialization in Data Analysis and Data Mining
 * Top grade in Data Mining course
 * Extra-credit projects
@@ -48,24 +49,16 @@ Semester Abroad, The University of Queensland, 2018
   * Warehouse robot (Java)
   * Rock climbing opening tool
 
-Publications
+Preparatory Cycle, 2014-2016
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+* Courses taught in englsih :
+  * Mathematics
+  * Physics
+  * Chemistry
+  * Informatics
+* Grades in the top 10%
   
-Talks
+Scientific Bachelor degree
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Specialization in mathematics
+* Average grade of 16.7/20 with 18/20 in both majors (Mathematics and Physics)
