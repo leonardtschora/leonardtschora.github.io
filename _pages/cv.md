@@ -11,6 +11,6 @@ redirect_from:
 
 [DOWNLOAD CV](/files/cv.pdf)
 
-<iframe src="/files/cv.pdf" style="width:100%; height:500px;" frameborder="0"></iframe>
+<iframe src="/files/cv.pdf" style="width:100%; height:100%;" frameborder="0"></iframe>
 If the document does not display correctly, you can [download it here](/files/cv.pdf)
 
