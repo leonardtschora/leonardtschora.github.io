@@ -7,7 +7,7 @@ date: 2023-04-01
 venue: 'International Symposium on Intelligent Data Analysis'
 #slidesurl: 'http://academicpages.github.io/files/ida-slides.pdf'
 paperurl: 'http://academicpages.github.io/files/ida.pdf'
-citation: '**Leonard Tschora**, Erwan Pierre, Marc Plantevit, Céline Robardet, (2023). *Forecasting Electricity Prices: An Optimize Then Predict-Based Approach*. In: Crémilleux, B., Hess, S., Nijssen, S. (eds) Advances in Intelligent Data Analysis XXI. IDA 2023. Lecture Notes in Computer Science, vol 13876. Springer, Cham. https://doi.org/10.1007/978-3-031-30047-9_35 (2010). '
+citation: 'Leonard Tschora, Erwan Pierre, Marc Plantevit, Céline Robardet, (2023). Forecasting Electricity Prices: An Optimize Then Predict-Based Approach. In: Crémilleux, B., Hess, S., Nijssen, S. (eds) Advances in Intelligent Data Analysis XXI. IDA 2023. Lecture Notes in Computer Science, vol 13876. Springer, Cham. https://doi.org/10.1007/978-3-031-30047-9_35 (2010). '
 ---
 
 We are interested in electricity price forecasting at the Euro-
