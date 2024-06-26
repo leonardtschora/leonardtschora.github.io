@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+[DOWNLOAD CV](/files/cv.pdf)
+
 <iframe src="/files/cv.pdf" style="width:100%; height:500px;" frameborder="0"></iframe>
-<p>If the document does not display correctly, you can download it here: [Download PDF](/files/cv.pdf)</p>
+If the document does not display correctly, you can [download it here](/files/cv.pdf)
 
