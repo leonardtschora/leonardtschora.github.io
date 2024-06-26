@@ -6,9 +6,9 @@ excerpt: 'A benchmark of the state-of-the-art Machine Learning techniques on Ele
 date: 2022-05-01
 venue: 'Applied Energy'
 #slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
-paperurl: 'http://academicpages.github.io/files/epf.pdf'
-citation: '**Léonard Tschora**, Erwan Pierre, Marc Plantevit, Céline Robardet,
-*Electricity price forecasting on the day-ahead market using machine learning*,
+paperurl: 'http://academicpages.github.io/files/EPF.pdf'
+citation: 'Léonard Tschora, Erwan Pierre, Marc Plantevit, Céline Robardet,
+Electricity price forecasting on the day-ahead market using machine learning,
 Applied Energy,
 Volume 313,
 2022,
