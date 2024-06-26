@@ -11,7 +11,7 @@ redirect_from:
 
 Power Market Data Analyst 2019-2024
 ======
-* Working within the [elmy](https://elmy.fr/) trading team :
+* Working within the [Elmy](https://elmy.fr/) trading team :
   * Building Machine Learning models for predicting the Day-Ahead market prices
   * Direct link with the traders and access to market indicators
   * Developing high-quality tools in a fast-paced environement
@@ -22,7 +22,7 @@ Power Market Data Analyst 2019-2024
 
 Research Internship 2019
 ======
-* Forecasting Electricity Prices (EPF) at elmy.
+* Forecasting Electricity Prices (EPF) at Elmy.
 * Conducting a state of the art on EPF
 * End-to-end solution from live data gathering to results publications
 * I pursued my research as a [thesis](\thesis\)
