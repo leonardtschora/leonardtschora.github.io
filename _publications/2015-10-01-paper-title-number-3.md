@@ -6,8 +6,8 @@ excerpt: 'This work was presented during the 10th IEEE International Conference 
 Conference.'
 date: 2023-10-06
 venue: 'DSAA 2023'
-slidesurl: 'http://academicpages.github.io/files/dsaa.pdf'
-paperurl: 'http://academicpages.github.io/files/dsaa-slides.pdf'
+slidesurl: '/files/dsaa.pdf'
+paperurl: '/files/dsaa-slides.pdf'
 citation: 'Leonard Tschora, Tias Guns, Erwan Pierre, Marc Plantevit and Céline. Robardet, Electricity Price Forecasting based on Order Books: a differentiable optimization approach, 2023 IEEE 10th International Conference on Data Science and Advanced Analytics (DSAA), Thessaloniki, Greece, 2023, pp. 1-10, doi: 10.1109/DSAA60987.2023.10302542.'
 ---
 
