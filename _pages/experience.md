@@ -32,9 +32,3 @@ Research Internship 2018
 * Bilingual (english) internship at Merck, Darmstadt
 * Studying the neocortical algortihm from [Numenta](https://www.numenta.com/platform/)
 * Drafting a customized implementation (python)
-
-Bassist in a rock band 2012-2022
-======
-* Played in more than 10 different bands from rock to jazz
-* More than 50 concerts
-* A dozen of studio recorded tracks and home studio recording
