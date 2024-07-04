@@ -11,7 +11,7 @@ redirect_from:
 
 Ph.D in Computer Sciences, INSA Lyon, 2020-2024
 ======
-* Industrial thesis conducted at the [Liris laboratory](https://liris.cnrs.fr/) (INSA Lyon) and [elmy](https://elmy.fr/).
+* Industrial thesis conducted at the [Liris laboratory](https://liris.cnrs.fr/), part of the [CNRS](https://www.cnrs.fr/en) (INSA Lyon) and [ELMY](https://elmy.fr/).
 * Machine Learning Techniques for Electricity Price Forecasting
 * Topics :
   * Explainable Artificial Intelligence
