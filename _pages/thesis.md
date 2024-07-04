@@ -10,7 +10,6 @@ redirect_from:
 {% include base_path %}
 
 Machine Learning techniques for Electricity Price Forecasting [PDF](/files/thesis.pdf)
-======
 
 ## Downloads
 
@@ -26,7 +25,8 @@ The defence was open to the public and was filmed. The [video is available here]
     <figcaption> <i>La fee electricite</i>, by Raoul Duffy in 1937, gives a good overview of the complexity of the problem.</figcaption>
 </figure>
 
-I started this thesis following my research internship at [ELMY](https://elmy.fr/) ([check here for more information](/experience/)). This thesis was a collaboration between the [Liris laboratory](https://liris.cnrs.fr/) (INSA Lyon), a lab that is part of the [CNRS](https://www.cnrs.fr/en), and elmy. As part of the [DM2L research team](https://projet.liris.cnrs.fr/dm2l/), I was mentored by [Céline Robardet](https://perso.liris.cnrs.fr/celine.robardet/) and [Marc Plantevit](https://www.lrde.epita.fr/wiki/User:Marc). I defended my thesis on the 17th of January, 2024 and was granted the title of Doctor in Informatics.
+
+I started this thesis following my research internship at [ELMY](https://elmy.fr/) ([check here for more information](/experience/)). This thesis was a collaboration between the [Liris laboratory](https://liris.cnrs.fr/) (INSA Lyon), a lab that is part of the [CNRS](https://www.cnrs.fr/en), and elmy. As part of the [DM2L research team](https://projet.liris.cnrs.fr/dm2l/), I was mentored by [Céline Robardet](https://perso.liris.cnrs.fr/celine.robardet/) and [Marc Plantevit](https://www.lrde.epita.fr/wiki/User:Marc). I defended my thesis on the 17th of January, 2024 and was granted the title of Doctor in Computer Sciences.
 
 ## Abstract
 

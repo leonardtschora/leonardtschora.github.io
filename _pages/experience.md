@@ -11,6 +11,7 @@ redirect_from:
 
 Power Market Machine Learning Engineer 2019-2024
 ======
+
 * Working within the [ELMY](https://elmy.fr/) trading team :
   * Building Machine Learning models for predicting the Day-Ahead market prices
   * Direct link with the traders and access to market indicators
