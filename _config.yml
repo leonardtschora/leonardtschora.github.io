@@ -24,10 +24,10 @@ author:
   avatar           : "profil.jpg"
   name             : "Leonard Tschora"
   pronouns         : # example: "she/her"  
-  bio              : "Ph.D. in Computer Sciences : Electricity Price forecasting using Machine Learning"
-  location         : "Paris"
+  bio              : "Ph.D. in Computer Science | Expert in Energy Market Analytics | Machine Learning Engineer Specializing in Electricity Price Forecasting & Predictive Modeling"
+  location         : "Framingham"
   employer         : "INSA Lyon"
-  uri              : "https://hal.science/search/index/?q=*&authIdPerson_i=1258185"
+  uri              : "https://leonardtschora.github.io//"
   email            : "leonard.tschora@protonmail.com" 
 
   # Academic websites
@@ -57,7 +57,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : Léonard Tschora
+  linkedin         : "https://www.linkedin.com/in/léonard-tschora-220132194"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username

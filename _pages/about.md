@@ -7,18 +7,22 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my personal webpage! Please use the top-menu to navigate and get the information you need.
+
+Thank you for visiting! Explore the menu above to learn more about my work and expertise in Machine Learning, Data Science, and their applications in Electricity Markets.
+About Me
 
 # About Me
 
-My interest towards Artificial Intelligence started through Machine Learning classes, during my engineering school at the INSA Rouen where I chose to specialize in Computer Sciences and Information Systems. After a semester abroad in the University of Queensland and a research internship at Merck, this vocation was confirmed!
+My journey in **Artificial Intelligence** began with a deep fascination for **Machine Learning** during my studies at INSA Rouen, where I specialized in **Computer Sciences** and **Information Systems**. This passion was further solidified during a semester abroad at the University of Queensland and a research internship at Merck, where I applied advanced **ML techniques** to real-world problems.
 
-I finished my studies with an internship at Elmy in Lyon, where I worked on Machine Learning techniques for electricity price forecasting. Given the depth of the subject and my keen interest in it, I was able to pursue my research as a Ph.D. at the INSA Lyon (LIRIS laboratory). 
+My career took a pivotal turn during an internship at Elmy in Lyon, where I worked extensively on **Machine Learning** techniques for **electricity price forecasting**. This experience sparked my deep interest in the intersection of **Machine Learning** and **Electricity Markets**, leading me to pursue a Ph.D. at INSA Lyon (LIRIS laboratory), one of France's top research institutions.
 
-The LIRIS laboratory is part of the National Center of Scientific Research (Centre National de Recherche Scientifique CNRS), the ranked 1 research lab in France. There, I developed innovative methods that led to several contributions in high-ranked journals, as well as the participation to international conferences. Specifically, my study of the interactions between Machine Learning and Optimization Problems applied to Graphs won the Frontier Prize for best paper award at the International Data Analysis 2023 conference.
+At the LIRIS laboratory—part of the National Center of Scientific Research (CNRS), France's leading research organization—I developed innovative **predictive models** and methods that contributed to significant advancements in the field. My work on the interaction between **Machine Learning** and **Optimization Problems** applied to **Graphs** was recognized with the **Frontier Prize** for the best paper at the International Data Analysis 2023 conference.
 
-At the same time, I applied the newly developed methods to the European Day-Ahead Power Markets. I contributed to the translation of my research into tools usable by BCMEnergy's trading team. Three years and a half later, I defended my Ph.D. in front of a cutting-edge jury and earned a PhD in Computer Sciences.
+During my Ph.D., I applied these predictive models to the **European Day-Ahead Power Markets**, transforming cutting-edge research into practical tools for Elmy’s trading team. This hands-on experience in the **electricity markets** industry has equipped me with a unique blend of research and practical application skills.
 
-I am looking to expand my professional horizons. Given my passion for research, I would always be disposed to working on a subject that requires developing innovative AI methodologies. Paradoxically, I feel the need to complete my competencies by focusing on the integration aspect of a ML project (MLOps).
+As I look to expand my professional horizons, I am passionate about continuing my work in **Machine Learning** and **Data Science**, with a particular focus on integrating ML projects into operational environments (MLOps). I am eager to explore new opportunities that challenge me to innovate and apply my expertise in **Python* and other tools to solve complex problems.
 
-Lastly, I want to be exposed to new ideas and new working methods. The University of Harvard and MIT have tremendously contributed to the Artificial Intelligence research. I believe that proximity to such centers of academic excellence encourages surrounding companies to pursue innovation and achieve excellence in this field. Given these advantages, I am seeking an on-site position in the Boston area.
+Given my interest in staying at the forefront of innovation, I am particularly drawn to the vibrant academic and technological environment of the Boston area. Proximity to leading institutions like Harvard and MIT, which are at the cutting edge of **Artificial Intelligence** research, makes this an ideal location for my next career step.
+
+If you're looking for someone who can combine deep technical expertise with a passion for innovation and real-world application, let's connect.

@@ -3,20 +3,20 @@ main:
   - title: "Home"
     url: /about/
 
-  - title: "Education"
-    url: /education/
+  - title: "Resume"
+    url: /resume/
 
   - title: "Experience"
     url: /experience/    
+
+  - title: "Education"
+    url: /education/
 
   - title: "Publications"
     url: /publications/    
     
   - title: "My thesis"
     url: /thesis/
-
-  - title: "CV"
-    url: /cv/
 
   - title: "Hobbies"
     url: /hobbies/
