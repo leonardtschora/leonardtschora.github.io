@@ -3,42 +3,96 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../consts';
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="AI systems, prototype to production"
+  description="I take AI systems from prototype to production — RAG and agents, and forecasting where the number drives a decision. PhD in machine learning."
+>
   <section class="hero">
     <img
       class="avatar"
       src={SITE.avatar}
-      alt={`Portrait of ${SITE.name}`}
+      alt={SITE.name}
       width="160"
       height="160"
       loading="eager"
     />
     <div class="hero-text">
-      <h1>{SITE.name}</h1>
-      <p class="tagline">{SITE.tagline}</p>
-      <p class="meta">{SITE.employer} · {SITE.location}</p>
+      <h1>I take AI systems from prototype to production</h1>
+      <p class="lead">
+        I am Léonard Tschora. I build and ship AI systems: RAG and agent architectures,
+        LLM pipelines, and forecasting models that a decision actually depends on. I
+        trained on European day-ahead power markets, where a bad model loses money by
+        lunchtime. I work with companies as an independent consultant, remote from
+        Paris, France.
+      </p>
+      <p class="meta">Independent AI/ML consultant · {SITE.location} · PhD, machine learning</p>
       <div class="cta">
-        <a class="button" href={SITE.resume} target="_blank" rel="noopener">
-          ↓ Download résumé
-        </a>
-        <a class="button secondary" href="/thesis/">View thesis &amp; publications</a>
+          <a class="button" href={SITE.booking} target="_blank" rel="noopener">Book 30 minutes</a>{' '}
+        <a class="button secondary" href="/work/">See the work</a>
       </div>
     </div>
   </section>
 
-  <section class="intro prose">
-    <h2>About</h2>
+  <section class="prose">
+    <h2>What I do</h2>
+    <ul class="entries services">
+      <li class="entry">
+        <h3>GenAI to production</h3>
+        <p>
+          RAG and agent architecture, evaluation harnesses, LLM pipelines, and the cost
+          and latency work that turns a prototype into something which survives real
+          traffic.
+        </p>
+      </li>
+      <li class="entry">
+        <h3>Forecasting and time-series</h3>
+        <p>
+          Demand, price, load, capacity. Feature and validation design, and putting the
+          model where a decision depends on the number it produces.
+        </p>
+      </li>
+      <li class="entry">
+        <h3>Private and on-premise LLM</h3>
+        <p>
+          Self-hosted model deployment and private retrieval over internal data, for
+          organisations whose data cannot leave their perimeter.
+        </p>
+      </li>
+    </ul>
+
+    <h2>Three things you can check</h2>
+    <ol class="proofs">
+      <li>
+        <strong>Three applications built and launched solo, with AI agents as the build team.</strong>{' '}
+        One of them, <em>Yes we kanji</em>, is live and you can open it now at{' '}
+        <a href="https://yeswekanji.streamlit.app/" target="_blank" rel="noopener">yeswekanji.streamlit.app</a>.
+        Kick-off to a deployed prototype took one day. →{' '}
+        <a href="/work/">the three builds, in detail</a>
+      </li>
+      <li>
+        <strong>A PhD in machine learning for European day-ahead electricity markets</strong>,
+        INSA Lyon and the LIRIS laboratory (CNRS), defended January 2024, with the <strong>Frontier Prize for best paper at IDA 2023</strong>. →{' '}
+        <a href="/about/">the research, and what it was for</a>
+      </li>
+      <li>
+        <strong>Forecasting that a trading desk used every day.</strong> Four and a half
+        years inside the trading team at BCM Energy (Planète Oui, now Elmy), building the
+        day-ahead price models the desk traded on. →{' '}
+        <a href="/experience/">what that job actually was</a>
+      </li>
+    </ol>
+
+    <h2>Start with a conversation</h2>
     <p>
-      I hold a Ph.D. in Computer Science and work as a Machine Learning engineer
-      focused on electricity price forecasting and energy-market analytics. My
-      research benchmarks state-of-the-art machine-learning methods on European
-      day-ahead electricity markets and explores differentiable-optimization and
-      explainability approaches to price prediction.
+      Thirty minutes, no deck. Tell me what you are building and what is stopping it from
+      shipping, and I will tell you whether I am the right person and roughly what it
+      would take. If I am not, I will say so.
+    </p>
+    <p class="cta">
+      <a class="button" href={SITE.booking} target="_blank" rel="noopener">Book 30 minutes</a>
     </p>
     <p>
-      Read about my <a href="/thesis/">Ph.D. thesis and publications</a>, or see
-      my <a href="/experience/">experience</a>, <a href="/education/">education</a>,
-      and <a href="/portfolio/">selected projects</a>.
+      or email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
     </p>
   </section>
 
@@ -60,12 +114,12 @@ import { SITE } from '../consts';
     }
     .hero-text { flex: 1 1 18rem; }
     .hero h1 { margin-top: 0; }
-    .tagline {
-      font-size: 1.15rem;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
+    .hero .lead { margin-bottom: 0.5rem; color: var(--text); }
     .meta { color: var(--text-muted); margin-bottom: 1.25rem; }
     .cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .services .entry h3 { margin: 0 0 0.4rem; font-size: 1.1rem; }
+    .services .entry p { margin: 0; }
+    .proofs { padding-left: 1.2rem; }
+    .proofs li { margin: 0 0 0.9rem; }
   </style>
 </BaseLayout>

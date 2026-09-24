@@ -7,4 +7,11 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://leonardtschora.github.io',
   integrations: [sitemap()],
+  // Old URLs that may have inbound links. Astro emits a meta-refresh page for each
+  // in the static build.
+  redirects: {
+    '/thesis': '/about/',
+    '/education': '/about/',
+    '/portfolio': '/work/',
+  },
 });

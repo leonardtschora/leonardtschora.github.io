@@ -3,23 +3,22 @@
 export const SITE = {
   name: 'Léonard Tschora',
   title: 'Léonard Tschora',
-  tagline:
-    'Ph.D. in Computer Science — Machine Learning engineer specializing in electricity price forecasting and energy-market analytics.',
+  tagline: 'I take AI systems from prototype to production.',
   description:
-    'Personal site of Léonard Tschora, Ph.D. in Computer Science and Machine Learning engineer working on electricity price forecasting and energy-market analytics.',
+    'Léonard Tschora — independent AI/ML consultant in Paris. RAG, agents and LLM pipelines taken to production, and forecasting where the number drives a decision.',
   url: 'https://leonardtschora.github.io',
   email: 'leonard.tschora@protonmail.com',
-  location: 'Framingham',
-  employer: 'INSA Lyon',
+  location: 'Paris, France',
   avatar: '/images/profil.jpg',
   resume: '/files/resume_leonard_tschora.pdf',
+  booking: 'https://calendar.proton.me/bookings#BkOlkqnkxQ3nrc5Goql85c8S7s--kr-DpnMvrVkWVF0=',
 } as const;
 
 export const NAV: { label: string; href: string }[] = [
+  { label: 'Work', href: '/work/' },
+  { label: 'About', href: '/about/' },
   { label: 'Experience', href: '/experience/' },
-  { label: 'Education', href: '/education/' },
-  { label: 'Thesis', href: '/thesis/' },
-  { label: 'Portfolio', href: '/portfolio/' },
+  { label: 'Contact', href: '/contact/' },
 ];
 
 export const SOCIALS: { label: string; href: string }[] = [

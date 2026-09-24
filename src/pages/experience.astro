@@ -2,61 +2,103 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Experience">
+<BaseLayout
+  title="Experience"
+  description="Independent AI/ML consulting since 2025, co-founder of an AI venture since 2024, and four and a half years as a power-market ML engineer inside a trading team."
+>
   <div class="prose">
     <h1>Experience</h1>
 
     <ol class="entries">
       <li class="entry">
         <div class="entry-head">
-          <h3>Power Market Machine Learning Engineer</h3>
-          <span class="period">2019 – 2024</span>
+          <h3>Independent AI/ML consultant</h3>
+          <span class="period">August 2025 to present</span>
         </div>
-        <p class="org">
-          <a href="https://elmy.fr/" target="_blank" rel="noopener">ELMY</a> — trading team
+        <p>
+          Remote: United States to February 2026, France since. RAG and agent
+          architecture, LLM pipelines, evaluation, production forecasting. Expert-Vetted on
+          Upwork, five stars.{' '}
+          <strong>Availability: two to three days a week of client work.</strong>
+        </p>
+      </li>
+
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Co-founder, GENAU AI</h3>
+          <span class="period">November 2024 to present</span>
+        </div>
+        <p>
+          I led the technical
+          build and coordinated a five-person team, standing up the production platform
+          from scratch: OVH compute, Railway-hosted database, Prefect, Argo CD and GitOps
+          delivery, GCP, VPN, multi-tenant Streamlit dashboards. I also built an in-house
+          team of AI coding agents that turns one command into a deployed pipeline,
+          with verified hand-offs and human approval gates. The models outperform incumbent
+          solutions by 30% on standard benchmarks.
+        </p>
+      </li>
+
+      <li class="entry">
+        <div class="entry-head">
+          <h3>
+            Power Market ML Engineer &amp; Quantitative Analyst — BCM Energy (Planète Oui,
+            now Elmy)
+          </h3>
+          <span class="period">September 2019 – March 2024</span>
+        </div>
+        <p>
+          Lyon, within the trading team. A CIFRE arrangement agreed at signature: one
+          role, whose research strand was the doctorate.
         </p>
         <ul>
-          <li>Building machine-learning models to predict day-ahead market prices.</li>
-          <li>Direct link with the traders and access to market indicators.</li>
-          <li>Developing high-quality tools in a fast-paced environment.</li>
           <li>
-            Implementation &amp; development: Julia, Python (PyTorch, PyTorch Geometric,
-            TensorFlow, scikit-learn, SciPy, NumPy, pandas), SQL.
+            Day-ahead price forecasting on European power markets.{' '}
+            <strong>Improved predictive accuracy by 46%</strong>, and built the
+            model-driven trading strategies the desk used daily.
           </li>
-          <li>Tooling: Airflow, Docker, Jenkins, ETL; visualization with Grafana and Matplotlib.</li>
+          <li>
+            <strong>I ran my own trading book, tied to the performance of my own model.</strong>{' '}
+            Very few machine-learning people carry that consequence.
+          </li>
+          <li>
+            Integrated <strong>more than 100 variables</strong> from dozens of external
+            sources into the internal database, <strong>ENTSO-E</strong> included.
+          </li>
+          <li>
+            Put the models into production and kept them there: Airflow, Docker,
+            PostgreSQL, Jenkins, GitHub CI, Grafana.
+          </li>
+          <li>
+            Reverse-engineered the market-clearing algorithm and embedded it inside the
+            model — the{' '}
+            <a href="/about/">research is described on the about page</a>.
+          </li>
         </ul>
       </li>
 
       <li class="entry">
         <div class="entry-head">
-          <h3>Research Internship</h3>
-          <span class="period">2019</span>
+          <h3>Research intern — BCM Energy</h3>
+          <span class="period">March – August 2019</span>
         </div>
-        <p class="org">
-          <a href="https://elmy.fr/" target="_blank" rel="noopener">ELMY</a>
+        <p>
+          Lyon. A state of the art on electricity price forecasting, and an end-to-end
+          system from live ingestion to published results. It became the thesis.
         </p>
-        <ul>
-          <li>Forecasting Electricity Prices (EPF) at ELMY.</li>
-          <li>Conducting a state of the art on EPF.</li>
-          <li>End-to-end solution from live data gathering to results publication.</li>
-          <li>Pursued this research as a <a href="/thesis/">Ph.D. thesis</a>.</li>
-        </ul>
       </li>
 
       <li class="entry">
         <div class="entry-head">
-          <h3>Research Internship</h3>
-          <span class="period">2018</span>
+          <h3>University teaching</h3>
+          <span class="period">2020 to 2023</span>
         </div>
-        <p class="org">Merck — Darmstadt, Germany</p>
-        <ul>
-          <li>Bilingual (English) internship at Merck, Darmstadt.</li>
-          <li>
-            Studying the neocortical algorithm from{' '}
-            <a href="https://www.numenta.com/" target="_blank" rel="noopener">Numenta</a>.
-          </li>
-          <li>Drafting a customized implementation (Python).</li>
-        </ul>
+        <p>
+          Eighty-two hours across three French engineering schools: the{' '}
+          <strong>EUPHEMIA</strong> market-clearing algorithm at M2 level at{' '}
+          <strong>École Centrale</strong>, four years running (32 h); algorithmics and
+          Python at <strong>IUT Lyon 1</strong> (42 h) and <strong>INSA Lyon</strong> (8 h).
+        </p>
       </li>
     </ol>
   </div>

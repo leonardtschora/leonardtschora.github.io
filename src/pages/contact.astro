@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Book thirty minutes, or send an email. Independent AI/ML consulting, Paris, France."
+>
+  <div class="prose">
+    <h1>Let's talk</h1>
+
+    <p class="cta">
+      <a class="button" href={SITE.booking} target="_blank" rel="noopener">Book 30 minutes</a>
+    </p>
+
+    <ul class="details">
+      <li><strong>Email</strong> — <a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+      <li>
+        <strong>LinkedIn</strong> —{' '}
+        <a href="https://www.linkedin.com/in/léonard-tschora-220132194" target="_blank" rel="noopener">linkedin.com/in/léonard-tschora-220132194</a>
+      </li>
+      <li>
+        <strong>Based</strong> in Paris, France. Remote across Europe; on site in France
+        when the work needs it.
+      </li>
+      <li><strong>Availability</strong> — two to three days a week of client work.</li>
+      <li><strong>Languages</strong> — French and English.</li>
+    </ul>
+  </div>
+
+  <style>
+    .details { list-style: none; padding: 0; margin: 2rem 0; }
+    .details li { margin: 0 0 0.4rem; }
+  </style>
+</BaseLayout>

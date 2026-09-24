@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+
+<BaseLayout
+  title="Work — how these systems were built"
+  description="Three applications built and launched solo with AI agents as the build team, and the engineering decisions behind them — measured rather than assumed."
+>
+  <div class="prose">
+    <h1>Work</h1>
+
+    <p class="lead">
+      Three applications, built and launched solo, with AI agents as the build team. What
+      follows is <strong>how they were built</strong>, because that is the part that
+      transfers. None of this is client work — all of it is mine, shipped and running.
+    </p>
+
+    <!-- Screenshot slot: an <img class="project-shot" …> as the first child of .project.
+         16:9, full card width. See COOKBOOK §4. -->
+    <article class="project">
+      <img
+        class="project-shot"
+        src="/images/work-yeswekanji.png"
+        alt="The Yes we kanji app: a grid of Japanese kanji cards under a theme selector."
+        width="2000"
+        height="1124"
+        loading="lazy"
+      />
+      <h2>Yes we kanji — kick-off to a live prototype in one day</h2>
+      <p class="what">A web app for memorising Japanese kanji.</p>
+      <p class="meta">Nine commits, all on 23 September 2026. Deployment and cross-device testing were mine, on Ubuntu, Android and iPhone browsers.</p>
+
+      <ul class="stats">
+        <li class="stat"><span class="stat-value">1 day</span><span class="stat-label">kick-off to live</span></li>
+        <li class="stat"><span class="stat-value">1,987</span><span class="stat-label">jōyō kanji</span></li>
+        <li class="stat"><span class="stat-value">6</span><span class="stat-label">decision records</span></li>
+      </ul>
+
+      <h3>The decision worth naming</h3>
+      <p>
+        The app makes no network calls at runtime. The kanji database is generated at build
+        time from KANJIDIC2, and all 100 audio files are pre-generated into 2.4 MB of
+        committed MP3s rather than synthesised per request. That is why it survives on
+        free-tier hosting. Six Architecture Decision Records, each recording what was
+        rejected.
+      </p>
+
+      <p class="card-links">
+        <a class="button" href="https://yeswekanji.streamlit.app/" target="_blank" rel="noopener">Live demo</a>
+        <a class="button secondary" href="https://github.com/leonardtschora/yeswekanji" target="_blank" rel="noopener">Source</a>
+      </p>
+    </article>
+
+    <article class="project">
+      <h2>gengiscan — a vision-LLM pipeline running in production</h2>
+      <p class="what">A Discord bot that turns a phone photo of a handwritten page into structured Markdown, committed straight into the user's GitHub notes repository.</p>
+      <p class="meta">April 2026, 11 modules, deployed on Railway. The repository is private, so there is no link.</p>
+
+      <ul class="stats">
+        <li class="stat"><span class="stat-value">2 days</span><span class="stat-label">solo build</span></li>
+        <li class="stat"><span class="stat-value">1,874</span><span class="stat-label">lines of Python</span></li>
+        <li class="stat"><span class="stat-value">$0.003</span><span class="stat-label">per page</span></li>
+      </ul>
+
+      <h3>The decisions worth naming</h3>
+      <ul>
+        <li>
+          A/B testing showed that the full OpenCV tonal chain — shadow removal, denoise,
+          CLAHE, sharpen — amplifies paper texture into speckle and <em>hurts</em>{' '}
+          vision-LLM accuracy. The default preprocessing is therefore deliberately minimal:
+          perspective-correct and deskew only. A measured decision, not a stack preference.
+        </li>
+        <li>
+          Messaging apps strip EXIF, so phone photos arrive sideways, and rotated
+          handwriting makes a vision model hallucinate wholesale. A 480-pixel thumbnail is
+          sent in all four rotations and the model picks the upright one, at about $0.003
+          per page.
+        </li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <img
+        class="project-shot"
+        src="/images/work-chocacao.png"
+        alt="The ChoCacao app: a sortable table of French communes ranked by temperature, with a colour scale."
+        width="2000"
+        height="1125"
+        loading="lazy"
+      />
+      <h2>ChoCacao — build time against run time</h2>
+      <p class="what">A web app that finds the hottest and coolest communes in metropolitan France for any hour in the week ahead.</p>
+      <p class="meta">Built solo in June 2026.</p>
+
+      <ul class="stats">
+        <li class="stat"><span class="stat-value">3 days</span><span class="stat-label">solo build</span></li>
+        <li class="stat"><span class="stat-value">2,036</span><span class="stat-label">grid points</span></li>
+        <li class="stat"><span class="stat-value">12</span><span class="stat-label">decision records</span></li>
+      </ul>
+
+      <h3>The decision worth naming</h3>
+      <p>
+        The expensive work happens once, offline. At build time a 25 km grid over France
+        (2,036 points) is reverse-geocoded through <code>geo.api.gouv.fr</code> into about
+        1,160 sampled communes. At run time the app loads that prebuilt index, fetches
+        hourly temperatures from Open-Meteo in batches and caches daily, so the request path
+        stays cheap. Twelve Architecture Decision Records, numbered 0001 to 0012.
+      </p>
+
+      <p class="card-links">
+        <a class="button" href="https://chocacao.streamlit.app/" target="_blank" rel="noopener">Live demo</a>
+        <a class="button secondary" href="https://github.com/leonardtschora/ChoCacao" target="_blank" rel="noopener">Source</a>
+      </p>
+    </article>
+
+    <h2>The method is the transferable asset</h2>
+    <p>
+      Twelve decision records in ChoCacao, six in Yes we kanji: two independent projects,
+      two months apart, both writing down the alternatives they rejected. One repository
+      with ADRs is a habit; two is a method. When AI agents write most of the code, the
+      decision record is what survives the session — and what a client still owns after I
+      leave.
+    </p>
+
+    <h2>Beyond my own products</h2>
+    <p>
+      <strong>A production platform, built from scratch.</strong> For the venture I
+      co-founded I stood up the whole thing: OVH compute, a Railway-hosted database,
+      Prefect orchestration, Argo CD and GitOps continuous delivery, GCP, VPN, multi-tenant
+      Streamlit dashboards. I led the technical build, coordinated a team of five, and built
+      an in-house team of AI coding agents that turns one command into a deployed
+      forecasting pipeline for a new market.
+    </p>
+    <p>
+      <strong>Applied research, for a US client (name withheld).</strong> Consistency models
+      and neural operators for diffusion-based image generation, aimed at cutting sampling
+      steps and training cost. Research, not a shipped system: it is here for the depth, not
+      the delivery.
+    </p>
+
+    <p class="cta">
+      <a class="button" href={SITE.booking} target="_blank" rel="noopener">Book 30 minutes</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Project card. Page-specific: only /work/ has projects. */
+  .project {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    padding: 1.25rem 1.35rem;
+    margin: 1.5rem 0;
+  }
+  .project h2 {
+    margin: 0 0 0.4rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+  }
+  .project .what { margin: 0; }
+  .project .meta {
+    margin: 0.35rem 0 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+  .project h3 {
+    margin: 0 0 0.4rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+  .project p:last-child { margin-bottom: 0; }
+  .project ul:not(.stats) { margin: 0; padding-left: 1.1rem; }
+  .project ul:not(.stats) li { margin: 0.35rem 0; }
+
+  /* Reserved slot for a screenshot, first child of the card. */
+  .project-shot {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 4px);
+    margin-bottom: 1rem;
+  }
+
+  .card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.1rem 0 0;
+  }
+  .card-links .button { font-size: 0.93rem; padding: 0.45rem 0.95rem; }
+
+  .cta { margin-top: 2rem; }
+
+  @media (max-width: 26rem) {
+    .project { padding: 1rem; }
+    .card-links .button { flex: 1 1 auto; text-align: center; }
+  }
+</style>

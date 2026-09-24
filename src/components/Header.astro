@@ -27,9 +27,6 @@ const current = norm(Astro.url.pathname);
         }
       </ul>
     </nav>
-    <a class="resume-btn" href={SITE.resume} target="_blank" rel="noopener">
-      <span aria-hidden="true">↓</span> Résumé
-    </a>
   </div>
 </header>
 
@@ -75,19 +72,4 @@ const current = norm(Astro.url.pathname);
   }
   nav a:hover { color: var(--text); background: var(--bg-subtle); text-decoration: none; }
   nav a[aria-current='page'] { color: var(--accent); background: var(--bg-subtle); }
-
-  .resume-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.4rem 0.85rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #fff;
-    background: var(--accent);
-    border: 1px solid var(--accent);
-    white-space: nowrap;
-  }
-  .resume-btn:hover { background: var(--accent-hover); color: #fff; text-decoration: none; }
 </style>
