@@ -18,7 +18,7 @@ import { SITE } from '../consts';
 
     <!-- Screenshot slot: an <img class="project-shot" …> as the first child of .project.
          16:9, full card width. See COOKBOOK §4. -->
-    <article class="project">
+    <article class="project" id="yeswekanji">
       <img
         class="project-shot"
         src="/images/work-yeswekanji.png"
@@ -52,7 +52,7 @@ import { SITE } from '../consts';
       </p>
     </article>
 
-    <article class="project">
+    <article class="project" id="gengiscan">
       <h2>gengiscan — a vision-LLM pipeline running in production</h2>
       <p class="what">A Discord bot that turns a phone photo of a handwritten page into structured Markdown, committed straight into the user's GitHub notes repository.</p>
       <p class="meta">April 2026, 11 modules, deployed on Railway. The repository is private, so there is no link.</p>
@@ -80,7 +80,7 @@ import { SITE } from '../consts';
       </ul>
     </article>
 
-    <article class="project">
+    <article class="project" id="chocacao">
       <img
         class="project-shot"
         src="/images/work-chocacao.png"
@@ -154,6 +154,8 @@ import { SITE } from '../consts';
     box-shadow: var(--shadow);
     padding: 1.25rem 1.35rem;
     margin: 1.5rem 0;
+    /* Clears the sticky header when linked from /#app-cards. */
+    scroll-margin-top: 5rem;
   }
   .project h2 {
     margin: 0 0 0.4rem;

@@ -58,8 +58,8 @@ Astro's file-based router turns `src/pages/x.astro` into `/x/`.
 
 | File | URL |
 |---|---|
-| `src/pages/index.astro` | `/` — hero (avatar, H1, lead, CTAs), "What I do", "Three things you can check", closing CTA |
-| `src/pages/work.astro` | `/work/` — three project cards (heading, one-liner, stat row, decision, link row), then the two closing sections. Hand-written markup; card CSS is scoped in the file. |
+| `src/pages/index.astro` | `/` — hero (avatar, credential chips, H1, lead, CTAs), "What I do" (three service cards, each with an icon), "Three applications you can check" (three linked app cards), closing CTA |
+| `src/pages/work.astro` | `/work/` — three project cards (heading, one-liner, stat row, decision, link row), then the two closing sections. Hand-written markup; card CSS is scoped in the file. Each `<article class="project">` carries an `id` (`yeswekanji`, `gengiscan`, `chocacao`) — the home page's app cards link to `/work/#<id>`, so **do not rename them**. `.project` has `scroll-margin-top` so the sticky header does not cover the card. |
 | `src/pages/about.astro` | `/about/` — profile, research, publications, education, CV link |
 | `src/pages/experience.astro` | `/experience/` — hardcoded list of roles |
 | `src/pages/contact.astro` | `/contact/` — CTA + plain contact lines. No form. |
@@ -106,6 +106,21 @@ Three layers, in this order of preference when adding CSS:
    alone (Header, Footer, the `index.astro` hero, the `.project` card cluster in
    `work.astro`, the list tweaks on `/about/` and `/contact/`). Astro scopes these
    automatically.
+
+   The home page's scoped block also holds two clusters worth knowing about:
+   `.creds` / `.cred` / `.cred-value` / `.cred-label` — the credential chips under the
+   portrait, a deliberate sibling of the `.stat` family (same border, `--bg-subtle`,
+   `--radius`); and `.app-cards` / `.app-card` — the three app cards, where the whole card
+   is a single `<a>` (`display: flex`, `height: 100%`, hover lifts the border to
+   `--accent`).
+
+   **Icons are inline SVG, never an icon font, an emoji or a dependency.** The convention:
+   `viewBox="0 0 24 24"`, `width="1em" height="1em"` on the element, `fill="none"`,
+   `stroke="currentColor"`, `stroke-width="1.75"`, round caps and joins, `aria-hidden="true"`,
+   and a one-line comment saying what the shape depicts. CSS then sizes them (`width`/`height`
+   `2em`, `flex: none`) and colours them with `color: var(--accent)`, so they follow the text
+   and switch with the theme for free. The `width`/`height` attributes matter: an SVG with a
+   `viewBox` and no intrinsic size fills its container if the CSS ever fails to apply.
 
    The `/work/` cards reserve a screenshot slot: an `<img class="project-shot" …>` as the
    first child of an `<article class="project">` renders full card width at **16:9**
