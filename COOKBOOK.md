@@ -213,6 +213,10 @@ a TypeScript error fails it. **Always run it before pushing** — CI runs nothin
 - Triggers on **push to `master`** and on manual `workflow_dispatch`.
 - Job `build`: checkout, then `withastro/action@v3`, which installs deps from the lockfile,
   runs `astro build` and uploads `dist/` as the Pages artifact.
+- **`node-version: 22` is pinned on that action and must stay pinned.** The action's default is
+  Node 20, not the latest LTS, and Astro 7 requires ≥22.12.0. It fails at *build* time with
+  "Node.js v20.x is not supported by Astro", after a successful install, so the first sign of
+  trouble is a red deploy. Keep it in step with `engines.node` in `package.json`.
 - Job `deploy`: `actions/deploy-pages@v4` publishes that artifact.
 - `permissions: pages: write` + `id-token: write` are required for the OIDC deploy.
 - `concurrency: pages` with `cancel-in-progress: false` — deploys queue rather than abort.

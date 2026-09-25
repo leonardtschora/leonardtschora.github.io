@@ -24,7 +24,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Build Astro site
         uses: withastro/action@v3
-        # Defaults: path ".", latest Node LTS, npm auto-detected from the lockfile.
+        with:
+          # MUST be pinned. The action's default is Node 20, not the latest LTS, and
+          # Astro 7 refuses to build below 22.12.0 — the failure is at build time,
+          # not install time, so nothing warns you until the deploy breaks.
+          # Keep this in step with the `engines.node` field in package.json.
+          node-version: 22
+        # Other defaults are fine: path ".", npm auto-detected from the lockfile.
 
   deploy:
     needs: build
