@@ -1,0 +1,75 @@
+---
+import { SITE, NAV } from '../consts';
+
+// Normalize a path to compare against the current URL (trailing-slash tolerant).
+const norm = (p: string) => (p !== '/' ? p.replace(/\/$/, '') : p);
+const current = norm(Astro.url.pathname);
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">{SITE.name}</a>
+    <nav aria-label="Primary">
+      <ul>
+        {
+          NAV.map(({ label, href }) => {
+            const active =
+              norm(href) === current ||
+              (href !== '/' && current.startsWith(norm(href)));
+            return (
+              <li>
+                <a href={href} aria-current={active ? 'page' : undefined}>
+                  {label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: saturate(150%) blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    flex-wrap: wrap;
+    padding-block: 0.75rem;
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-right: auto;
+  }
+  .brand:hover { text-decoration: none; color: var(--accent); }
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.35rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav a {
+    display: inline-block;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  nav a:hover { color: var(--text); background: var(--bg-subtle); text-decoration: none; }
+  nav a[aria-current='page'] { color: var(--accent); background: var(--bg-subtle); }
+</style>

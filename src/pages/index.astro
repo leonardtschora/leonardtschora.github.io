@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+
+<BaseLayout
+  title="AI systems, prototype to production"
+  description="I take AI systems from prototype to production — RAG and agents, and forecasting where the number drives a decision. PhD in machine learning."
+>
+  <section class="hero">
+    <img
+      class="avatar"
+      src={SITE.avatar}
+      alt={SITE.name}
+      width="160"
+      height="160"
+      loading="eager"
+    />
+    <div class="hero-text">
+      <h1>I take AI systems from prototype to production</h1>
+      <p class="lead">
+        I am Léonard Tschora. I build and ship AI systems: RAG and agent architectures,
+        LLM pipelines, and forecasting models that a decision actually depends on. I
+        trained on European day-ahead power markets, where a bad model loses money by
+        lunchtime. I work with companies as an independent consultant, remote from
+        Paris, France.
+      </p>
+      <p class="meta">Independent AI/ML consultant · {SITE.location} · PhD, machine learning</p>
+      <div class="cta">
+          <a class="button" href={SITE.booking} target="_blank" rel="noopener">Book 30 minutes</a>{' '}
+        <a class="button secondary" href="/work/">See the work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>What I do</h2>
+    <ul class="entries services">
+      <li class="entry">
+        <!-- Nodes and edges: GenAI architecture. 24x24, stroke only. See COOKBOOK §4. -->
+        <svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="5" cy="12" r="2.5" />
+          <circle cx="19" cy="6" r="2.5" />
+          <circle cx="19" cy="18" r="2.5" />
+          <path d="M7.2 11 16.6 6.9" />
+          <path d="M7.2 13 16.6 17.1" />
+        </svg>
+        <h3>GenAI to production</h3>
+        <p>
+          RAG and agent architecture, evaluation harnesses, LLM pipelines, and the cost
+          and latency work that turns a prototype into something which survives real
+          traffic.
+        </p>
+      </li>
+      <li class="entry">
+        <!-- Rising series on two axes: forecasting. -->
+        <svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 4v16h16" />
+          <path d="M7.5 15.5 11 12l3 2.5 5.5-6" />
+          <path d="M15.5 8.5h4v4" />
+        </svg>
+        <h3>Forecasting and time-series</h3>
+        <p>
+          Demand, price, load, capacity. Feature and validation design, and putting the
+          model where a decision depends on the number it produces.
+        </p>
+      </li>
+      <li class="entry">
+        <!-- Shield with keyhole: data that stays inside the perimeter. -->
+        <svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3.2 19 6v5.2c0 4.3-2.9 7.3-7 8.8-4.1-1.5-7-4.5-7-8.8V6z" />
+          <circle cx="12" cy="10.8" r="1.5" />
+          <path d="M12 12.3v2.6" />
+        </svg>
+        <h3>Private and on-premise LLM</h3>
+        <p>
+          Self-hosted model deployment and private retrieval over internal data, for
+          organisations whose data cannot leave their perimeter.
+        </p>
+      </li>
+    </ul>
+
+    <h2>Three applications you can check</h2>
+    <ul class="app-cards">
+      <li>
+        <a class="app-card" href="/work/#yeswekanji">
+          <span class="app-icon app-glyph" aria-hidden="true">字</span>
+          <span class="app-name">Yes we kanji</span>
+          <span class="app-what">A web app for memorising Japanese kanji.</span>
+        </a>
+      </li>
+      <li>
+        <a class="app-card" href="/work/#chocacao">
+          <!-- Thermometer: temperature across French communes. -->
+          <svg class="app-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 14.8V5.5a2 2 0 0 0-4 0v9.3a4 4 0 1 0 4 0z" />
+            <path d="M14 8.5h2.6" />
+            <path d="M14 11.5h2.6" />
+          </svg>
+          <span class="app-name">ChoCacao</span>
+          <span class="app-what">A web app that finds the hottest and coolest communes in metropolitan France for any hour in the week ahead.</span>
+        </a>
+      </li>
+      <li>
+        <a class="app-card" href="/work/#gengiscan">
+          <!-- Page under a scan line: a photo of handwriting in, Markdown out. -->
+          <svg class="app-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 8.5V4.5h4" />
+            <path d="M16 4.5h4v4" />
+            <path d="M20 15.5v4h-4" />
+            <path d="M8 19.5H4v-4" />
+            <path d="M4.5 12h15" />
+            <path d="M8 8.5h8" />
+            <path d="M8 15.5h8" />
+          </svg>
+          <span class="app-name">gengiscan</span>
+          <span class="app-what">A Discord bot that turns a phone photo of a handwritten page into structured Markdown, committed straight into the user's GitHub notes repository.</span>
+        </a>
+      </li>
+    </ul>
+
+    <h2>Start with a conversation</h2>
+    <p>
+      Thirty minutes, no deck. Tell me what you are building and what is stopping it from
+      shipping, and I will tell you whether I am the right person and roughly what it
+      would take. If I am not, I will say so.
+    </p>
+    <p class="cta">
+      <a class="button" href={SITE.booking} target="_blank" rel="noopener">Book 30 minutes</a>
+    </p>
+    <p>
+      or email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+    </p>
+  </section>
+
+  <style>
+    .hero {
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-block: 1rem 2.5rem;
+    }
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+
+    .hero-text { flex: 1 1 18rem; }
+    .hero h1 { margin-top: 0; }
+    .hero .lead { margin-bottom: 0.5rem; color: var(--text); }
+    .meta { color: var(--text-muted); margin-bottom: 1.25rem; }
+    .cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    /* Service cards: the icon sits in a left column, spanning title and body. */
+    .services .entry {
+      display: grid;
+      grid-template-columns: 2em 1fr;
+      column-gap: 1rem;
+    }
+    .services .icon {
+      grid-row: span 2;
+      width: 2em;
+      height: 2em;
+      flex: none;
+      color: var(--accent);
+      margin-top: 0.15rem;
+    }
+    .services .entry h3 { margin: 0 0 0.4rem; font-size: 1.1rem; }
+    .services .entry p { margin: 0; }
+
+    /* App cards: the whole card is the link. */
+    .app-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      gap: 0.9rem;
+      margin: 1.5rem 0;
+      padding: 0;
+      list-style: none;
+    }
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      height: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 1rem 1.1rem;
+      color: var(--text);
+    }
+    .app-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      text-decoration: none;
+    }
+    .app-icon {
+      width: 2em;
+      height: 2em;
+      flex: none;
+      color: var(--accent);
+    }
+    .app-glyph {
+      font-size: 2em;
+      line-height: 1;
+      width: auto;
+      height: auto;
+      font-weight: 600;
+    }
+    .app-name { font-weight: 700; color: var(--accent); }
+    .app-card:hover .app-name { color: var(--accent-hover); }
+    .app-what { font-size: 0.9rem; color: var(--text-muted); line-height: 1.45; }
+
+    @media (max-width: 30rem) {
+    }
+  </style>
+</BaseLayout>

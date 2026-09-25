@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+
+<BaseLayout
+  title="About"
+  description="Independent AI/ML consultant in Paris. PhD in machine learning for European day-ahead electricity markets (INSA Lyon, LIRIS/CNRS) and the Frontier Prize at IDA 2023."
+>
+  <div class="prose">
+    <h1>About Me</h1>
+
+    <p class="lead">
+      I am an independent AI and machine-learning consultant based in Paris, working
+      remotely with clients across Europe. I build AI systems for production — RAG, agents
+      and LLM pipelines — and forecasting models where a decision depends on the number. I
+      hold a PhD in computer science from <strong>INSA Lyon</strong>, carried out
+      at the <strong>LIRIS laboratory (CNRS, UMR 5205)</strong> under Professors{' '}
+      <strong>Céline Robardet</strong> and <strong>Marc Plantevit</strong>, on machine
+      learning for electricity price forecasting on the European day-ahead market. It was a{' '}
+      <strong>CIFRE industrial thesis</strong> with <strong>BCM Energy</strong> (then
+      trading as Planète Oui, now Elmy), defended on <strong>17 January 2024</strong>.
+    </p>
+
+    <h2>The research, and why it is here</h2>
+    <p>
+      A doctorate is worth stating for one reason: it is where the habits came from. Four
+      years of being wrong in public, where a bad forecast cost the desk money the same
+      afternoon, teaches validation design better than tidy benchmark work does.
+    </p>
+    <p>
+      The thesis, <em>Machine learning techniques for electricity price forecasting</em>,
+      predicts the twenty-four hourly prices of a European day-ahead market before they
+      are fixed at noon. The literature splits into two incomplete camps.{' '}
+      <strong>Expert models</strong> replicate the price-fixing algorithm from estimated
+      inputs: theoretically right, inaccurate in practice, because input errors propagate
+      through a clearing process never designed to be robust to them.{' '}
+      <strong>Data-driven models</strong> estimate prices directly: accurate, and opaque.
+      Opacity is not an abstract complaint when the output goes to a trading desk — a trader
+      who cannot see why a forecast moved will not size a position on it.{' '}
+      <strong>Explainability is an adoption requirement, not a compliance nicety</strong>:
+      the most portable lesson in the thesis.
+    </p>
+    <p class="pub-links">
+      <a href="/files/thesis.pdf"><strong>Read the thesis (PDF)</strong></a> ·{' '}
+      <a href="/files/defence.pdf">defence slides</a> ·{' '}
+      <a href="https://www.youtube.com/live/Stj9HCPnH7g?t=226" target="_blank" rel="noopener">defence video</a>
+    </p>
+
+    <h2>Putting an optimisation problem inside a model</h2>
+    <p>
+      European day-ahead prices are not observed, they are computed: a single algorithm —{' '}
+      <strong>EUPHEMIA</strong> — clears every submitted order at once, maximising social
+      welfare subject to energy balance and cross-border capacity. Almost every forecasting
+      model in the literature treats the market as a black box instead. My DSAA 2023 paper
+      does the opposite: it predicts the <strong>order book</strong> from fundamental
+      variables, then feeds those orders into a differentiable formulation of the clearing
+      problem, so the mechanism is present during training rather than bolted on at the end.
+      That required a <strong>differentiable dichotomy search</strong> solving a
+      mixed-integer quadratic program inside a neural network.
+    </p>
+    <p>
+      That shape is not confined to electricity. Whenever the quantity you are forecasting
+      is itself the output of a known process — a pricing rule, an allocation, an auction, a
+      scheduler — the same three options apply: ignore it, replicate it and inherit its
+      input sensitivity, or make it differentiable and train through it.
+    </p>
+
+    <h2>Publications</h2>
+    <p>
+      Three peer-reviewed papers and a thesis.{' '}
+      <strong>329 citations as of September 2026</strong>{' '}
+      (<a href="https://scholar.google.com/citations?user=O-R4mTsAAAAJ" target="_blank" rel="noopener">Google Scholar</a>).
+    </p>
+    <ul class="pubs">
+      <li>
+        <strong>Frontier Prize — best paper, IDA 2023.</strong>{' '}
+        <em>Forecasting Electricity Prices: An Optimize Then Predict-Based Approach.</em>{' '}
+        Intelligent Data Analysis 2023, Louvain-la-Neuve. Springer LNCS 13876.{' '}
+        <a href="https://doi.org/10.1007/978-3-031-30047-9_35" target="_blank" rel="noopener">doi:10.1007/978-3-031-30047-9_35</a>
+      </li>
+      <li>
+        <em>Electricity price forecasting on the day-ahead market using machine learning.</em>{' '}
+        <strong>Applied Energy</strong> 313, 118752, Elsevier, May 2022. The most cited.{' '}
+        <a href="https://doi.org/10.1016/j.apenergy.2022.118752" target="_blank" rel="noopener">doi:10.1016/j.apenergy.2022.118752</a>
+      </li>
+      <li>
+        <em>Electricity Price Forecasting based on Order Books: a differentiable optimization approach.</em>{' '}
+        <strong>IEEE DSAA 2023</strong>, Thessaloniki, with Tias Guns.{' '}
+        <a href="https://doi.org/10.1109/DSAA60987.2023.10302542" target="_blank" rel="noopener">doi:10.1109/DSAA60987.2023.10302542</a>
+      </li>
+      <li>
+        <em>Machine learning techniques for electricity price forecasting.</em> PhD
+        thesis, INSA de Lyon, January 2024, number 2024ISAL0007.
+      </li>
+    </ul>
+
+    <h2>Education</h2>
+    <ul class="pubs">
+      <li>
+        <strong>PhD, Computer Science</strong> — INSA Lyon, LIRIS (CNRS), 2020–2024.
+      </li>
+      <li>
+        <strong>Diplôme d'ingénieur, Computer Science</strong> — INSA Rouen, 2014–2019,
+        Information Systems Architect specialisation, Master's level (EQF 7). Semester at
+        The University of Queensland, Brisbane.
+      </li>
+    </ul>
+    <p>
+      <a href={SITE.resume} target="_blank" rel="noopener">Curriculum vitae (PDF)</a>.
+      French (native), English (professional).
+    </p>
+
+    <h2>Working together</h2>
+    <p>
+      A small number of clients at a time, two to three days a week, remote from Paris and
+      on site in France when the work needs it. If you have an AI prototype that has to
+      become a system, or a forecast that has to drive a decision,{' '}
+      <a href={SITE.booking} target="_blank" rel="noopener">book thirty minutes</a>.
+    </p>
+  </div>
+
+  <style>
+    .pubs { padding-left: 1.2rem; }
+    .pubs li { margin: 0 0 0.9rem; }
+  </style>
+</BaseLayout>
