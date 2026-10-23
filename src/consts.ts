@@ -6,7 +6,7 @@ export const SITE = {
   tagline: 'I take AI systems from prototype to production.',
   description:
     'Léonard Tschora — independent AI/ML consultant in Paris. RAG, agents and LLM pipelines taken to production, and forecasting where the number drives a decision.',
-  url: 'https://leonardtschora.github.io',
+  url: 'https://leonardtschora.com',
   email: 'leonard.tschora@protonmail.com',
   location: 'Paris, France',
   avatar: '/images/profil.jpg',
