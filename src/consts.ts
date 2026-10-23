@@ -29,6 +29,6 @@ export const SOCIALS: { label: string; href: string }[] = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/léonard-tschora-220132194',
+    href: 'https://www.linkedin.com/in/leonardtschora',
   },
 ];
