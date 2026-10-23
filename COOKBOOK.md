@@ -1,8 +1,9 @@
 # Cookbook — how this site is built
 
 Personal site of Léonard Tschora. **Astro 7**, static output, built by **GitHub Actions**,
-served by **GitHub Pages** at `https://leonardtschora.github.io/` (a *user site*, so it is
-served from the domain root and needs no `base` path).
+served by **GitHub Pages** at the custom domain `https://leonardtschora.com/` (repo
+`leonardtschora/leonardtschora.github.io`, a *user site*, so it is served from the domain root
+and needs no `base` path; `leonardtschora.github.io` redirects to the custom domain).
 
 This file documents **the code**: what each file does and the recipe for each kind of
 change. It does not document the content itself.
@@ -24,6 +25,7 @@ change. It does not document the content itself.
 | `src/pages/*.astro` | One file = one route. See §3. |
 | `src/styles/global.css` | Design tokens + base/reset + shared component classes. |
 | `public/` | Copied verbatim to the site root. `public/files/` = PDFs, `public/images/` = images, favicons. |
+| `public/CNAME` | The custom domain, one line: `leonardtschora.com`. See §7 *Custom domain*. |
 | `dist/` | Build output. Git-ignored. Never edit, never commit. |
 | `.astro/` | Generated types. Git-ignored. |
 | `_pages/`, `_publications/` | **Dead.** Leftovers from the old Jekyll/AcademicPages site. Nothing reads them. |
@@ -235,6 +237,20 @@ gh api -X PUT repos/leonardtschora/leonardtschora.github.io/pages \
 
 Watch a deploy: `gh run list -L 5` and `gh run watch`.
 
+### Custom domain
+
+The site is served at `https://leonardtschora.com`. Three things must agree:
+
+- **DNS** (outside this repo): the apex has the four GitHub Pages `A` records, `www` is a
+  `CNAME` to `leonardtschora.github.io`.
+- **The Pages setting** (*Settings → Pages → Custom domain*, or `gh api …/pages --jq .cname`).
+  With an Actions deploy this setting is what GitHub actually honours.
+- **The code**: `site` in `astro.config.mjs` and `SITE.url` in `src/consts.ts` (canonical,
+  `og:url`, `og:image`, sitemap), plus `public/CNAME`, which is copied to `dist/CNAME` and
+  keeps the domain recorded in the artifact.
+
+To change the domain, change all three together.
+
 ---
 
 ## 8. Traps
@@ -248,6 +264,9 @@ Watch a deploy: `gh run list -L 5` and `gh run watch`.
 - **Trailing slashes.** Astro emits `/experience/index.html`. Link to `/experience/`, and
   keep the trailing slash in `NAV` so the active-link highlight works.
 - **Dark mode is token-only.** Adding a hardcoded colour anywhere silently breaks it.
+- **The domain lives in two constants.** `site` in `astro.config.mjs` and `SITE.url` in
+  `src/consts.ts` must name the same origin as `public/CNAME`, or canonicals and the sitemap
+  point at the wrong host.
 - **The sitemap needs `site`.** Removing `site` from `astro.config.mjs` breaks the sitemap
   and every canonical/OG URL.
 - **No content collections.** `src/content.config.ts` and `src/content/` were deleted with
