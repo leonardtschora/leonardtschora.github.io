@@ -126,7 +126,8 @@ Three layers, in this order of preference when adding CSS:
 
    The `/work/` cards reserve a screenshot slot: an `<img class="project-shot" …>` as the
    first child of an `<article class="project">` renders full card width at **16:9**
-   (`object-fit: cover`). The rule exists; no image uses it yet.
+   (`object-fit: cover`). All three cards use it; the files are `public/images/work-<id>.png`.
+   A source image that is not 16:9 is cropped at the edges, not distorted.
 
 Rule of thumb: if two files would need the rule, put it in `global.css`; otherwise keep it
 scoped.

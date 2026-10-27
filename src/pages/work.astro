@@ -53,9 +53,17 @@ import { SITE } from '../consts';
     </article>
 
     <article class="project" id="gengiscan">
+      <img
+        class="project-shot"
+        src="/images/work-gengiscan.png"
+        alt="The gengiscan web app: an upload form for photos, scans or PDFs, beside a map of the Mongol Empire."
+        width="1381"
+        height="691"
+        loading="lazy"
+      />
       <h2>gengiscan — a vision-LLM pipeline running in production</h2>
-      <p class="what">A Discord bot that turns a phone photo of a handwritten page into structured Markdown, committed straight into the user's GitHub notes repository.</p>
-      <p class="meta">April 2026, 11 modules, deployed on Railway. The repository is private, so there is no link.</p>
+      <p class="what">A web app that turns photos, scans or PDFs of handwritten notes into a clean PDF, a Word file and Markdown, LaTeX equations and sketches included. It also runs as a Discord bot that commits each note to a GitHub repository.</p>
+      <p class="meta">Bot built in April 2026, public web app since October 2026. 11 modules, deployed on Railway. The repository is private.</p>
 
       <ul class="stats">
         <li class="stat"><span class="stat-value">2 days</span><span class="stat-label">solo build</span></li>
@@ -77,7 +85,16 @@ import { SITE } from '../consts';
           sent in all four rotations and the model picks the upright one, at about $0.003
           per page.
         </li>
+        <li>
+          Each page is routed by a cheap classifier: Haiku labels it, simple print goes to
+          Sonnet, complex print and handwriting go to Opus. About $0.03 per page, under daily
+          and monthly spend caps.
+        </li>
       </ul>
+
+      <p class="card-links">
+        <a class="button" href="https://gengiscan.leonardtschora.com/" target="_blank" rel="noopener">Live demo</a>
+      </p>
     </article>
 
     <article class="project" id="chocacao">
