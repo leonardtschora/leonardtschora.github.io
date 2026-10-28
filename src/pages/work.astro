@@ -27,28 +27,36 @@ import { SITE } from '../consts';
         height="1124"
         loading="lazy"
       />
-      <h2>Yes we kanji — kick-off to a live prototype in one day</h2>
-      <p class="what">A web app for memorising Japanese kanji.</p>
-      <p class="meta">Nine commits, all on 23 September 2026. Deployment and cross-device testing were mine, on Ubuntu, Android and iPhone browsers.</p>
+      <h2>Yes we kanji — a one-day prototype, now on Google Cloud</h2>
+      <p class="what">A web app for memorising Japanese kanji. Type any theme and get ten matching cards, with audio.</p>
+      <p class="meta">Prototype: nine commits, all on 23 September 2026. Deployment and cross-device testing were mine, on Ubuntu, Android and iPhone browsers. Then ported to Google Cloud.</p>
+      <p class="meta">Stack: BigQuery (data, vectors, review log) · Vertex AI Gemini with RAG through BigQuery <code>VECTOR_SEARCH</code> · Cloud Run · Cloud Storage · Text-to-Speech.</p>
 
       <ul class="stats">
         <li class="stat"><span class="stat-value">1 day</span><span class="stat-label">kick-off to live</span></li>
         <li class="stat"><span class="stat-value">1,987</span><span class="stat-label">jōyō kanji</span></li>
-        <li class="stat"><span class="stat-value">6</span><span class="stat-label">decision records</span></li>
+        <li class="stat"><span class="stat-value">30/30</span><span class="stat-label">test runs passed</span></li>
       </ul>
 
-      <h3>The decision worth naming</h3>
+      <h3>The decisions worth naming</h3>
       <p>
-        The app makes no network calls at runtime. The kanji database is generated at build
-        time from KANJIDIC2, and all 100 audio files are pre-generated into 2.4 MB of
-        committed MP3s rather than synthesised per request. That is why it survives on
-        free-tier hosting. Six Architecture Decision Records, each recording what was
-        rejected.
+        The prototype made no network calls at runtime: the kanji database was generated at
+        build time from KANJIDIC2, and the 100 audio files were pre-generated MP3s. That is
+        why it ran on free-tier hosting.
+      </p>
+      <p>
+        The Google Cloud version adds themes generated on the fly. Gemini first checks the
+        request is a theme and expands it; BigQuery <code>VECTOR_SEARCH</code> retrieves 30
+        candidate kanji; Gemini picks ten; code rejects anything outside the candidates. On a
+        10-theme test set run three times, that check step took the pass rate from 21/30 to
+        30/30. Audio for new cards is synthesised once and kept in Cloud Storage. Eleven
+        Architecture Decision Records, each recording what was rejected.
       </p>
 
       <p class="card-links">
         <a class="button" href="https://yeswekanji.leonardtschora.com/" target="_blank" rel="noopener">Live demo</a>
-        <a class="button secondary" href="https://github.com/TschorAI/yeswekanji" target="_blank" rel="noopener">Source</a>
+        <a class="button secondary" href="https://github.com/TschorAI/yeswekanji-gcp" target="_blank" rel="noopener">Source</a>
+        <a class="button secondary" href="https://github.com/TschorAI/yeswekanji" target="_blank" rel="noopener">Prototype source</a>
       </p>
     </article>
 
