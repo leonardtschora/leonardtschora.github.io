@@ -5,71 +5,116 @@ import { SITE } from '../consts';
 
 <BaseLayout
   title="Work — how these systems were built"
-  description="Three applications built and launched solo with AI agents as the build team, and the engineering decisions behind them — measured rather than assumed."
+  description="Four applications built and launched solo with AI agents as the build team, and the engineering decisions behind them — measured rather than assumed."
 >
   <div class="prose">
     <h1>Work</h1>
 
     <p class="lead">
-      Three applications, built and launched solo, with AI agents as the build team. What
+      Four applications, built and launched solo, with AI agents as the build team. What
       follows is <strong>how they were built</strong>, because that is the part that
       transfers. None of this is client work — all of it is mine, shipped and running.
     </p>
 
-    <!-- Screenshot slot: an <img class="project-shot" …> as the first child of .project.
+    <!-- Screenshot slot: an <img class="project-shot" …> as the first child of .project,
+         wrapped in a.shot-link to the live app (the title links there too).
          16:9, full card width. See COOKBOOK §4. -->
-    <article class="project" id="yeswekanji">
-      <img
-        class="project-shot"
-        src="/images/work-yeswekanji.png"
-        alt="The Yes we kanji app: a grid of Japanese kanji cards under a theme selector."
-        width="2000"
-        height="1124"
-        loading="lazy"
-      />
-      <h2>Yes we kanji — a one-day prototype, now on Google Cloud</h2>
-      <p class="what">A web app for memorising Japanese kanji. Type any theme and get ten matching cards, with audio.</p>
-      <p class="meta">Prototype: nine commits, all on 23 September 2026. Deployment and cross-device testing were mine, on Ubuntu, Android and iPhone browsers. Then ported to Google Cloud.</p>
-      <p class="meta">Stack: BigQuery (data, vectors, review log) · Vertex AI Gemini with RAG through BigQuery <code>VECTOR_SEARCH</code> · Cloud Run · Cloud Storage · Text-to-Speech.</p>
+    <article class="project" id="envoituresimone">
+      <a class="shot-link" href="https://simone.leonardtschora.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img
+          class="project-shot"
+          src="/images/work-envoituresimone.png"
+          alt="The En voiture Simone map: every fuel station in France as a dot coloured from green (cheap) to red (dear), beside a list of the ten cheapest."
+          width="1600"
+          height="900"
+          loading="lazy"
+        />
+      </a>
+      <h2><a href="https://simone.leonardtschora.com/" target="_blank" rel="noopener">En voiture Simone — every fuel price in France, on one map</a></h2>
+      <p class="what">A public map of today's fuel prices at every station in France, refreshed every hour from the official feed. Next, the cheapest refill near you, counting the fuel and wear spent driving there.</p>
+      <p class="meta">Built solo on 3 November 2026, live the same day. Deployed on Railway. Open source.</p>
+      <p class="meta">Stack: FastAPI · Leaflet and OpenStreetMap · pandas and Parquet · OpenRouteService routing · Géoplateforme geocoding · Docker.</p>
 
       <ul class="stats">
         <li class="stat"><span class="stat-value">1 day</span><span class="stat-label">kick-off to live</span></li>
-        <li class="stat"><span class="stat-value">1,987</span><span class="stat-label">jōyō kanji</span></li>
-        <li class="stat"><span class="stat-value">30/30</span><span class="stat-label">test runs passed</span></li>
+        <li class="stat"><span class="stat-value">~9,800</span><span class="stat-label">stations, <a href="https://data.economie.gouv.fr/explore/dataset/prix-des-carburants-en-france-flux-instantane-v2/" target="_blank" rel="noopener">official feed</a></span></li>
+        <li class="stat"><span class="stat-value">1 h</span><span class="stat-label">price refresh</span></li>
       </ul>
 
       <h3>The decisions worth naming</h3>
-      <p>
-        The prototype made no network calls at runtime: the kanji database was generated at
-        build time from KANJIDIC2, and the 100 audio files were pre-generated MP3s. That is
-        why it ran on free-tier hosting.
+      <ul>
+        <li>
+          About one price in ten in the official feed had not been updated for more than a
+          week. One Paris price dated from August 2025, and it came out as the cheapest.
+          Prices older than seven days are now left out, and the map says how many.
+        </li>
+        <li>
+          One 600 KB download an hour replaces a query per visitor. The app keeps the
+          snapshot and a history of every price change, so the map never waits on the
+          government API.
+        </li>
+        <li>
+          The trip comparison, motorway against toll-free, was built and then cut. A flat
+          per-kilometre toll estimate was not good enough to show drivers. Real tariffs exist
+          for each entry and exit pair, as open data for one operator and as PDFs for the
+          others; matching them to routes is the next version.
+        </li>
+      </ul>
+
+      <p class="card-links">
+        <a class="button" href="https://simone.leonardtschora.com/" target="_blank" rel="noopener">Live demo</a>
+        <a class="button secondary" href="https://github.com/TschorAI/envoituresimone" target="_blank" rel="noopener">Source</a>
       </p>
+    </article>
+
+    <article class="project" id="chocacao">
+      <a class="shot-link" href="https://chocacao.leonardtschora.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img
+          class="project-shot"
+          src="/images/work-chocacao.png"
+          alt="The ChoCacao app: a sortable table of French communes ranked by temperature, with a colour scale."
+          width="2000"
+          height="1125"
+          loading="lazy"
+        />
+      </a>
+      <h2><a href="https://chocacao.leonardtschora.com/" target="_blank" rel="noopener">ChoCacao — build time against run time</a></h2>
+      <p class="what">A web app that finds the hottest and coolest communes in metropolitan France for any hour in the week ahead.</p>
+      <p class="meta">Built solo in June 2026.</p>
+
+      <ul class="stats">
+        <li class="stat"><span class="stat-value">3 days</span><span class="stat-label">solo build</span></li>
+        <li class="stat"><span class="stat-value">2,036</span><span class="stat-label">grid points</span></li>
+        <li class="stat"><span class="stat-value">12</span><span class="stat-label">decision records</span></li>
+      </ul>
+
+      <h3>The decision worth naming</h3>
       <p>
-        The Google Cloud version adds themes generated on the fly. Gemini first checks the
-        request is a theme and expands it; BigQuery <code>VECTOR_SEARCH</code> retrieves 30
-        candidate kanji; Gemini picks ten; code rejects anything outside the candidates. On a
-        10-theme test set run three times, that check step took the pass rate from 21/30 to
-        30/30. Audio for new cards is synthesised once and kept in Cloud Storage. Eleven
-        Architecture Decision Records, each recording what was rejected.
+        The expensive work happens once, offline. At build time a 25 km grid over France
+        (2,036 points) is reverse-geocoded through <code>geo.api.gouv.fr</code> into about
+        1,160 sampled communes. At run time the app loads that prebuilt index, fetches
+        hourly temperatures from Open-Meteo in batches and caches daily, so the request path
+        stays cheap. Twelve Architecture Decision Records, numbered 0001 to 0012.
       </p>
 
       <p class="card-links">
-        <a class="button" href="https://yeswekanji.leonardtschora.com/" target="_blank" rel="noopener">Live demo</a>
-        <a class="button secondary" href="https://github.com/TschorAI/yeswekanji-gcp" target="_blank" rel="noopener">Source</a>
-        <a class="button secondary" href="https://github.com/TschorAI/yeswekanji" target="_blank" rel="noopener">Prototype source</a>
+        <a class="button" href="https://chocacao.leonardtschora.com/" target="_blank" rel="noopener">Live demo</a>
+        <a class="button secondary" href="https://github.com/TschorAI/ChoCacao" target="_blank" rel="noopener">Source</a>
       </p>
     </article>
 
     <article class="project" id="gengiscan">
-      <img
-        class="project-shot"
-        src="/images/work-gengiscan.png"
-        alt="The gengiscan web app: an upload form for photos, scans or PDFs, beside a map of the Mongol Empire."
-        width="1381"
-        height="777"
-        loading="lazy"
-      />
-      <h2>gengiscan — a vision-LLM pipeline running in production</h2>
+      <a class="shot-link" href="https://gengiscan.leonardtschora.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img
+          class="project-shot"
+          src="/images/work-gengiscan.png"
+          alt="The gengiscan web app: an upload form for photos, scans or PDFs, beside a map of the Mongol Empire."
+          width="1381"
+          height="777"
+          loading="lazy"
+        />
+      </a>
+      <h2><a href="https://gengiscan.leonardtschora.com/" target="_blank" rel="noopener">gengiscan — a vision-LLM pipeline running in production</a></h2>
       <p class="what">A web app that turns photos, scans or PDFs of handwritten notes into a clean PDF, a Word file and Markdown, LaTeX equations and sketches included. It also runs as a Discord bot that commits each note to a GitHub repository.</p>
       <p class="meta">Bot built in April 2026, public web app since October 2026. 11 modules, deployed on Railway. The repository is private.</p>
 
@@ -105,44 +150,55 @@ import { SITE } from '../consts';
       </p>
     </article>
 
-    <article class="project" id="chocacao">
-      <img
-        class="project-shot"
-        src="/images/work-chocacao.png"
-        alt="The ChoCacao app: a sortable table of French communes ranked by temperature, with a colour scale."
-        width="2000"
-        height="1125"
-        loading="lazy"
-      />
-      <h2>ChoCacao — build time against run time</h2>
-      <p class="what">A web app that finds the hottest and coolest communes in metropolitan France for any hour in the week ahead.</p>
-      <p class="meta">Built solo in June 2026.</p>
+    <article class="project" id="yeswekanji">
+      <a class="shot-link" href="https://yeswekanji.leonardtschora.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img
+          class="project-shot"
+          src="/images/work-yeswekanji.png"
+          alt="The Yes we kanji app: a grid of Japanese kanji cards under a theme selector."
+          width="2000"
+          height="1124"
+          loading="lazy"
+        />
+      </a>
+      <h2><a href="https://yeswekanji.leonardtschora.com/" target="_blank" rel="noopener">Yes we kanji — a one-day prototype, now on Google Cloud</a></h2>
+      <p class="what">A web app for memorising Japanese kanji. Type any theme and get ten matching cards, with audio.</p>
+      <p class="meta">Prototype: nine commits, all on 23 September 2026. Deployment and cross-device testing were mine, on Ubuntu, Android and iPhone browsers. Then ported to Google Cloud.</p>
+      <p class="meta">Stack: BigQuery (data, vectors, review log) · Vertex AI Gemini with RAG through BigQuery <code>VECTOR_SEARCH</code> · Cloud Run · Cloud Storage · Text-to-Speech.</p>
 
       <ul class="stats">
-        <li class="stat"><span class="stat-value">3 days</span><span class="stat-label">solo build</span></li>
-        <li class="stat"><span class="stat-value">2,036</span><span class="stat-label">grid points</span></li>
-        <li class="stat"><span class="stat-value">12</span><span class="stat-label">decision records</span></li>
+        <li class="stat"><span class="stat-value">1 day</span><span class="stat-label">kick-off to live</span></li>
+        <li class="stat"><span class="stat-value">1,987</span><span class="stat-label">jōyō kanji</span></li>
+        <li class="stat"><span class="stat-value">30/30</span><span class="stat-label">test runs passed</span></li>
       </ul>
 
-      <h3>The decision worth naming</h3>
+      <h3>The decisions worth naming</h3>
       <p>
-        The expensive work happens once, offline. At build time a 25 km grid over France
-        (2,036 points) is reverse-geocoded through <code>geo.api.gouv.fr</code> into about
-        1,160 sampled communes. At run time the app loads that prebuilt index, fetches
-        hourly temperatures from Open-Meteo in batches and caches daily, so the request path
-        stays cheap. Twelve Architecture Decision Records, numbered 0001 to 0012.
+        The prototype made no network calls at runtime: the kanji database was generated at
+        build time from KANJIDIC2, and the 100 audio files were pre-generated MP3s. That is
+        why it ran on free-tier hosting.
+      </p>
+      <p>
+        The Google Cloud version adds themes generated on the fly. Gemini first checks the
+        request is a theme and expands it; BigQuery <code>VECTOR_SEARCH</code> retrieves 30
+        candidate kanji; Gemini picks ten; code rejects anything outside the candidates. On a
+        10-theme test set run three times, that check step took the pass rate from 21/30 to
+        30/30. Audio for new cards is synthesised once and kept in Cloud Storage. Eleven
+        Architecture Decision Records, each recording what was rejected: six for the
+        prototype, five for the Google Cloud version.
       </p>
 
       <p class="card-links">
-        <a class="button" href="https://chocacao.leonardtschora.com/" target="_blank" rel="noopener">Live demo</a>
-        <a class="button secondary" href="https://github.com/TschorAI/ChoCacao" target="_blank" rel="noopener">Source</a>
+        <a class="button" href="https://yeswekanji.leonardtschora.com/" target="_blank" rel="noopener">Live demo</a>
+        <a class="button secondary" href="https://github.com/TschorAI/yeswekanji-gcp" target="_blank" rel="noopener">Source</a>
+        <a class="button secondary" href="https://github.com/TschorAI/yeswekanji" target="_blank" rel="noopener">Prototype source</a>
       </p>
     </article>
 
     <h2>The method is the transferable asset</h2>
     <p>
-      Twelve decision records in ChoCacao, six in Yes we kanji: two independent projects,
-      two months apart, both writing down the alternatives they rejected. One repository
+      Twelve decision records in ChoCacao, eleven in Yes we kanji (six for the prototype,
+      five for the Google Cloud version): two independent projects, two months apart, both writing down the alternatives they rejected. One repository
       with ADRs is a habit; two is a method. When AI agents write most of the code, the
       decision record is what survives the session — and what a client still owns after I
       leave.
@@ -186,6 +242,8 @@ import { SITE } from '../consts';
     margin: 0 0 0.4rem;
     font-size: clamp(1.2rem, 2.5vw, 1.4rem);
   }
+  .project h2 a { color: inherit; text-decoration: none; }
+  .project h2 a:hover, .project h2 a:focus-visible { color: var(--accent); text-decoration: underline; }
   .project .what { margin: 0; }
   .project .meta {
     margin: 0.35rem 0 0;
@@ -202,6 +260,10 @@ import { SITE } from '../consts';
   .project p:last-child { margin-bottom: 0; }
   .project ul:not(.stats) { margin: 0; padding-left: 1.1rem; }
   .project ul:not(.stats) li { margin: 0.35rem 0; }
+
+  /* The screenshot links to the live app; keyboard users get the same link on the title. */
+  .shot-link { display: block; }
+  .shot-link:hover .project-shot { border-color: var(--accent); }
 
   /* Reserved slot for a screenshot, first child of the card. */
   .project-shot {

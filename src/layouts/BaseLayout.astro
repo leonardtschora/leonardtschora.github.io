@@ -29,6 +29,7 @@ const ogImage = new URL(SITE.avatar, Astro.site ?? SITE.url).href;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} — feed`} href="/rss.xml" />
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
