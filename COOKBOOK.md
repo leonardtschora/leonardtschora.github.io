@@ -45,9 +45,10 @@ BaseLayout.astro  ──imports──>  consts.ts (SITE)         → <title>, me
       └──renders──> Footer.astro ──> consts.ts (SITE, SOCIALS)
 ```
 
-There are **no content collections**. Every page is hand-written markup; the `publications`
-collection and `src/content/` were deleted with `/thesis/` (September 2026) — the list of
-four references now lives as plain markup in `about.astro`.
+There is **one content collection**, `feed` (`src/content.config.ts`, entries in
+`src/content/feed/*.md`), read by `/feed/`, the "Latest" block on `/` and `/rss.xml`. Every other
+page is hand-written markup; the old `publications` collection was deleted with `/thesis/`
+(September 2026) — the list of four references now lives as plain markup in `about.astro`.
 
 Everything is rendered at build time. There is no client-side JavaScript and no runtime
 server. `astro build` writes plain HTML into `dist/`.
@@ -61,7 +62,10 @@ Astro's file-based router turns `src/pages/x.astro` into `/x/`.
 | File | URL |
 |---|---|
 | `src/pages/index.astro` | `/` — hero (avatar, credential chips, H1, lead, CTAs), "What I do" (three service cards, each with an icon), "Three applications you can check" (three linked app cards), closing CTA |
-| `src/pages/work.astro` | `/work/` — three project cards (heading, one-liner, stat row, decision, link row), then the two closing sections. Hand-written markup; card CSS is scoped in the file. Each `<article class="project">` carries an `id` (`yeswekanji`, `gengiscan`, `chocacao`) — the home page's app cards link to `/work/#<id>`, so **do not rename them**. `.project` has `scroll-margin-top` so the sticky header does not cover the card. |
+| `src/pages/feed.astro` | `/feed/` — dated updates, newest first, one `<article class="feed-entry" id="<entry id>">` each, with its markdown body and an optional button to `link`. |
+| `src/pages/rss.xml.js` | `/rss.xml` — the same entries as RSS 2.0 (`@astrojs/rss`); each item links to `/feed/#<id>`, description = `summary`. Announced in `<head>` by `BaseLayout.astro`. |
+| `src/content.config.ts`, `src/content/feed/` | The feed collection: schema and entries. |
+| `src/pages/work.astro` | `/work/` — four project cards, in this order: envoituresimone, ChoCacao, gengiscan, Yes we kanji (heading, one-liner, stat row, decision, link row), then the two closing sections. Hand-written markup; card CSS is scoped in the file. Each `<article class="project">` carries an `id` (`envoituresimone`, `chocacao`, `gengiscan`, `yeswekanji`) — the home page's app cards link to `/work/#<id>`, so **do not rename them**. The card title and the screenshot both link to the live app (new tab); the screenshot link is `aria-hidden` and out of the tab order, so keyboard and screen-reader users get the link once, on the title. `.project` has `scroll-margin-top` so the sticky header does not cover the card. |
 | `src/pages/about.astro` | `/about/` — profile, research, publications, education, CV link |
 | `src/pages/experience.astro` | `/experience/` — hardcoded list of roles |
 | `src/pages/contact.astro` | `/contact/` — CTA + plain contact lines. No form. |
@@ -112,7 +116,7 @@ Three layers, in this order of preference when adding CSS:
    The home page's scoped block also holds two clusters worth knowing about:
    `.creds` / `.cred` / `.cred-value` / `.cred-label` — the credential chips under the
    portrait, a deliberate sibling of the `.stat` family (same border, `--bg-subtle`,
-   `--radius`); and `.app-cards` / `.app-card` — the three app cards, where the whole card
+   `--radius`); and `.app-cards` / `.app-card` — the four app cards (2 x 2; same order as `/work/`), where the whole card
    is a single `<a>` (`display: flex`, `height: 100%`, hover lifts the border to
    `--accent`).
 
@@ -126,7 +130,7 @@ Three layers, in this order of preference when adding CSS:
 
    The `/work/` cards reserve a screenshot slot: an `<img class="project-shot" …>` as the
    first child of an `<article class="project">` renders full card width at **16:9**
-   (`object-fit: cover`). All three cards use it; the files are `public/images/work-<id>.png`.
+   (`object-fit: cover`), wrapped in an `<a class="shot-link">` to the live app. All four cards use it; the files are `public/images/work-<id>.png`.
    A source image that is not 16:9 is cropped at the edges, not distorted.
 
 Rule of thumb: if two files would need the rule, put it in `global.css`; otherwise keep it
@@ -155,6 +159,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 ```
 `title` becomes `"<title> · Léonard Tschora"`. Omit it only on the home page.
+
+### Add a feed entry
+Create `src/content/feed/YYYY-MM-DD-<slug>.md`; the file name (without `.md`) is the entry id and
+its anchor on `/feed/`, so do not rename it once published.
+```md
+---
+title: "Short headline"
+date: 2026-11-04
+summary: "One or two sentences. Shown on the home page and as the RSS description."
+link: https://example.leonardtschora.com/   # optional: the button
+linkLabel: Open the app                       # optional, default "Open"
+---
+Two or three short paragraphs. Every figure links to where it can be checked.
+```
+`/feed/`, the home page's three latest and `/rss.xml` all update at the next build. Post at least
+twice a month: a feed that stops is worse than none.
 
 ### Add a publication
 Add an `<li>` to the `<ul class="pubs">` under the *Publications* heading in

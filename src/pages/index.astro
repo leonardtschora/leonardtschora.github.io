@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../consts';
+import { getCollection } from 'astro:content';
+
+// The three latest feed entries, for the "Latest" block.
+const latest = (await getCollection('feed')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const fmtDate = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 ---
 
 <BaseLayout
@@ -80,13 +85,19 @@ import { SITE } from '../consts';
       </li>
     </ul>
 
-    <h2>Three applications you can check</h2>
+    <h2>Four applications you can check</h2>
     <ul class="app-cards">
       <li>
-        <a class="app-card" href="/work/#yeswekanji">
-          <span class="app-icon app-glyph" aria-hidden="true">字</span>
-          <span class="app-name">Yes we kanji</span>
-          <span class="app-what">A web app for memorising Japanese kanji.</span>
+        <a class="app-card" href="/work/#envoituresimone">
+          <!-- Fuel pump: a fuel price for every station in France. -->
+          <svg class="app-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4.5 20V5.5A1.5 1.5 0 0 1 6 4h6a1.5 1.5 0 0 1 1.5 1.5V20" />
+            <path d="M3 20h12" />
+            <path d="M4.5 10h9" />
+            <path d="M13.5 8h2l2.5 2.5v6a1.25 1.25 0 0 0 2.5 0V9.5L18 7" />
+          </svg>
+          <span class="app-name">En voiture Simone</span>
+          <span class="app-what">A map of today's fuel prices at every station in France, refreshed every hour.</span>
         </a>
       </li>
       <li>
@@ -117,7 +128,26 @@ import { SITE } from '../consts';
           <span class="app-what">A web app that turns photos, scans or PDFs of handwritten notes into a clean PDF, a Word file and Markdown.</span>
         </a>
       </li>
+      <li>
+        <a class="app-card" href="/work/#yeswekanji">
+          <span class="app-icon app-glyph" aria-hidden="true">字</span>
+          <span class="app-name">Yes we kanji</span>
+          <span class="app-what">A web app for memorising Japanese kanji.</span>
+        </a>
+      </li>
     </ul>
+
+    <h2>Latest</h2>
+    <ul class="latest">
+      {latest.map((e) => (
+        <li>
+          <time datetime={e.data.date.toISOString().slice(0, 10)}>{fmtDate(e.data.date)}</time>
+          <a href={`/feed/#${e.id}`}>{e.data.title}</a>
+          <span class="latest-summary">{e.data.summary}</span>
+        </li>
+      ))}
+    </ul>
+    <p><a href="/feed/">All updates</a> · <a href="/rss.xml">RSS</a></p>
 
     <h2>Start with a conversation</h2>
     <p>
@@ -177,7 +207,8 @@ import { SITE } from '../consts';
     /* App cards: the whole card is the link. */
     .app-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      /* 16rem: four cards sit as 2 x 2 in the content column, one column on phones. */
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
       gap: 0.9rem;
       margin: 1.5rem 0;
       padding: 0;
@@ -216,6 +247,17 @@ import { SITE } from '../consts';
     .app-name { font-weight: 700; color: var(--accent); }
     .app-card:hover .app-name { color: var(--accent-hover); }
     .app-what { font-size: 0.9rem; color: var(--text-muted); line-height: 1.45; }
+
+    /* "Latest": the three newest feed entries. */
+    .latest { list-style: none; padding: 0; margin: 1rem 0 0.6rem; }
+    .latest li { display: grid; grid-template-columns: 7rem 1fr; column-gap: 1rem; padding: 0.55rem 0; border-top: 1px solid var(--border); }
+    .latest time { grid-row: span 2; font-size: 0.85rem; color: var(--text-muted); padding-top: 0.1rem; }
+    .latest a { font-weight: 600; }
+    .latest-summary { font-size: 0.9rem; color: var(--text-muted); line-height: 1.45; }
+    @media (max-width: 30rem) {
+      .latest li { grid-template-columns: 1fr; }
+      .latest time { grid-row: auto; }
+    }
 
     @media (max-width: 30rem) {
     }
