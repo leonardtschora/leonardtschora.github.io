@@ -3,9 +3,9 @@
 export const SITE = {
   name: 'Léonard Tschora',
   title: 'Léonard Tschora',
-  tagline: 'I install AI agents in your team\'s tools and keep them running.',
+  tagline: 'AI agents in production, evaluated for accuracy and cost.',
   description:
-    'Léonard Tschora — co-founder of GENAU AI and independent AI consultant in Paris. AI agents installed in a team\'s own tools and run in production, LLM evaluation, and forecasting.',
+    'Léonard Tschora — co-founder of GENAU AI and independent AI consultant in Paris. AI agents in production, evaluated for accuracy and cost.',
   url: 'https://leonardtschora.com',
   email: 'leonard.tschora@protonmail.com',
   location: 'Paris, France',
