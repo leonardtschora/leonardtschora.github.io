@@ -12,15 +12,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <ol class="entries">
       <li class="entry">
         <div class="entry-head">
-          <h3>Independent AI/ML consultant</h3>
+          <h3>Independent AI consultant</h3>
           <span class="period">August 2025 to present</span>
         </div>
         <p>
-          Remote: United States to February 2026, France since. RAG and agent
-          architecture, LLM pipelines, evaluation, production forecasting. Expert-Vetted on
-          Upwork, five stars.{' '}
+          Remote: United States to February 2026, France since. Expert-Vetted on Upwork,
+          five stars.{' '}
           <strong>Availability: three days a week of client work.</strong>
         </p>
+        <p>
+          <strong>Case study: open-weight vs frontier LLMs on a real business decision</strong>,
+          for a sovereign-AI start-up.
+        </p>
+        <ul>
+          <li>
+            The task: a French customer's return or refund request (message, receipt,
+            degraded photos) plus the shop's records. The model picks one action (refund,
+            replace, coupon, refuse, ask for proof), with the amount, the rule applied and a
+            reply.
+          </li>
+          <li>
+            The test set: <strong>480 synthetic cases</strong> built backwards from hidden
+            facts, at three difficulty levels, with 14 kinds of traps (reused receipt,
+            contradicting photo, prompt injection). A rules engine and an independent Claude
+            run agree on 98% of verdicts.
+          </li>
+          <li>
+            Results: Claude Sonnet 92%, Mistral Large 4 88%,{' '}
+            <strong>self-hosted Qwen 27B in reasoning mode 88%</strong>, smaller open models
+            37–56%.
+          </li>
+          <li>
+            Cost, measured per case: Qwen 27B served with vLLM on one rented L40S GPU costs{' '}
+            <strong>about a sixth of Sonnet</strong>.
+          </li>
+        </ul>
       </li>
 
       <li class="entry">
@@ -30,18 +56,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <p>
           GENAU AI, a pre-seed battery-optimization start-up I co-founded, is my main
-          activity. I build the agents the team runs on. A chain of seven AI agents turns a
-          market specification into a deployed dashboard: market research, data ingestion and
-          analysis, modelling, integration, reporting and deployment. Each agent works under a
-          contract that fixes its inputs, outputs and boundaries, and the chain is configured
-          at three levels: each agent's brief, the model each agent runs on, and agents
-          specific to each market. A meeting agent runs as a Railway cron job: it picks up new
-          recordings from SharePoint through an Entra app, re-transcribes the bilingual
-          meetings with Whisper, posts an executive summary to Slack and syncs the action
-          items to Trello (46 meetings processed). I also built the forecasting engine and two
-          dashboards in production, and, with a co-founder, the Kubernetes and GitOps platform
-          underneath. I lead the technical work of a five-person team.
+          activity. I build the agents the team runs on.
         </p>
+        <ul>
+          <li>
+            <strong>A chain of seven AI agents</strong> that turns a market specification into
+            a deployed dashboard: market research, data ingestion and analysis, modelling,
+            integration, reporting and deployment. Each agent works under a contract that
+            fixes its inputs, outputs and boundaries. The chain is configured at three
+            levels: each agent's brief, the model each agent runs on, and agents specific to
+            each market.
+          </li>
+          <li>
+            <strong>A meeting agent.</strong> A Railway cron job picks up new recordings from
+            SharePoint through an Entra app. Whisper re-transcribes the bilingual meetings, an
+            executive summary is posted to Slack, and the action items are synced to Trello.
+            46 meetings processed so far.
+          </li>
+          <li>
+            <strong>A news-watch agent.</strong> It pulls articles from chosen sources,
+            removes duplicates and ranks sources by trust; Claude writes a 10-line digest
+            posted to Slack every morning, for about $0.30 a day.
+          </li>
+        </ul>
       </li>
 
       <li class="entry">
