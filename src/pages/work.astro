@@ -11,14 +11,53 @@ import { SITE } from '../consts';
     <h1>Work</h1>
 
     <p class="lead">
-      Four applications, built and launched solo, with AI agents as the build team. What
-      follows is <strong>how they were built</strong>, because that is the part that
-      transfers. None of this is client work — all of it is mine, shipped and running.
+      An LLM evaluation for a start-up, then four applications built with AI agents as the
+      build team. What follows is <strong>how they were built</strong>, because that is the
+      part that transfers. The four apps are my own products, shipped and running.
     </p>
 
     <!-- Screenshot slot: an <img class="project-shot" …> as the first child of .project,
          wrapped in a.shot-link to the live app (the title links there too).
          16:9, full card width. See COOKBOOK §4. -->
+    <article class="project" id="llm-accuracy-cost">
+      <img
+        class="project-shot"
+        src="/images/work-llm-cost.png"
+        alt="Scatter chart of accuracy against cost per case. Claude Sonnet 92% at 4.3 cents, Mistral Large 4 88% at 1.1 cents, self-hosted Qwen 27B in reasoning mode 88% at 0.73 cents, Qwen 27B 74%, Qwen 9B 56%, Ministral 8B 49%."
+        width="1600"
+        height="1200"
+        loading="lazy"
+      />
+      <h2>Open-weight against frontier LLMs, on accuracy and cost</h2>
+      <p class="what">For a sovereign-AI start-up: can a self-hosted open model replace a frontier API on a real French business decision? The task is a customer's return or refund request (message, receipt, degraded photos) plus the shop's records; the model picks one action, with the amount, the rule applied and a reply.</p>
+      <p class="meta">Stack: Python · PostgreSQL · vLLM on one rented L40S GPU (OVH) · Claude · Mistral API · Qwen and Ministral open weights.</p>
+
+      <ul class="stats">
+        <li class="stat"><span class="stat-value">480</span><span class="stat-label">cases with known answers</span></li>
+        <li class="stat"><span class="stat-value">88% vs 92%</span><span class="stat-label">Qwen 27B vs Sonnet</span></li>
+        <li class="stat"><span class="stat-value">÷6</span><span class="stat-label">cost per case</span></li>
+      </ul>
+
+      <h3>The decisions worth naming</h3>
+      <ul>
+        <li>
+          Cases are built backwards from hidden facts, at three difficulty levels, with 14
+          kinds of traps (reused receipt, contradicting photo, prompt injection...). A rules
+          engine and an independent Claude run agree on 98% of verdicts, so the score is not
+          one model grading another.
+        </li>
+        <li>
+          Cost is measured per case, not estimated: API list prices for Claude and Mistral,
+          GPU rental time for the open models, eight cases in parallel. A rental price against
+          a list price, and said as such.
+        </li>
+        <li>
+          Reasoning mode is what makes the 27B model viable: 74% without it, 88% with it.
+          Smaller open models stay between 37% and 56%.
+        </li>
+      </ul>
+    </article>
+
     <article class="project" id="envoituresimone">
       <a class="shot-link" href="https://simone.leonardtschora.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
         <img
@@ -214,14 +253,6 @@ import { SITE } from '../consts';
       A meeting agent picks up recordings from SharePoint through an Entra app, re-transcribes
       bilingual meetings with Whisper, posts an executive summary to Slack and syncs the
       action items to Trello (46 meetings so far). I lead the technical work of a team of five.
-    </p>
-    <p>
-      <strong>Evaluating an LLM for accuracy and cost.</strong> For a sovereign-AI
-      start-up I compared a self-hosted open model with frontier APIs on 480 French
-      customer-service cases whose right answer was known in advance, with traps and three
-      levels of difficulty. The self-hosted 27B model reached 88% against 92% for Claude
-      Sonnet, at about a sixth of the cost per case once cases ran in parallel — a rental
-      price against an API list price, and said as such.
     </p>
     <p>
       <strong>Applied research, for a US client (name withheld).</strong> Consistency models
